@@ -1,3 +1,10 @@
+import Main from "../src/pages/Main"
+
+
 export default function App() {
-    return 
+    return(
+        <>
+            <Main />
+        </>
+    ) 
 }
