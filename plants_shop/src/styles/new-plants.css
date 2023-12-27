@@ -1,0 +1,92 @@
+.card--wrapper {
+    width: 430px;
+    min-height: 460px;
+    margin: 15px;
+    background: white;
+    border-radius: 20px;
+}
+
+.plant--img {
+    padding: 10px;
+}
+
+.plant--img > img {
+    width: 100%;
+}
+
+.plant--section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px;
+}
+
+.plant--info {
+    height: 120px;
+}
+
+.plant--name {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+.plant--description {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgb(131, 131, 131);
+    margin: 0;
+    padding: 0;
+}
+
+.plant--price {
+    font-size: 18px;
+    font-weight: 900;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.plant--arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    min-width: 60px;
+    height: 60px;
+    background: black;
+    border-radius: 50px;
+}
+
+.section--wrapper {
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.section--info {
+    display: flex;
+}
+
+.section--name {
+    width: 50%;
+}
+
+.section--name > p {
+    font-size: 80px;
+    font-weight: 900;
+    padding: 0;
+    margin: 0 30px;
+}
+
+.section--text {
+    width: 50%;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.section--plants {
+    min-height: 460px;
+    display: flex;
+    justify-content: center;
+}
