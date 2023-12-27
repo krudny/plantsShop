@@ -9,7 +9,7 @@ export default function Nav() {
             <div className="nav--links">
                 <p>Home</p>
                 <p>Shop</p>
-                <p>About us</p>
+                <p>Discover</p>
                 <p>Contact us</p>
             </div>
             <div className="nav--icons">
