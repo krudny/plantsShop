@@ -1,4 +1,4 @@
-import "../styles/header.css"
+import "../styles/nav.css"
 
 export default function Nav() {
     return (
@@ -13,7 +13,8 @@ export default function Nav() {
                 <p>Contact us</p>
             </div>
             <div className="nav--icons">
-                <span class="material-symbols-outlined">person</span>
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span className="material-symbols-outlined">person</span>
             </div>
         </nav>
     )

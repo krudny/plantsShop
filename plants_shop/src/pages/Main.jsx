@@ -1,11 +1,10 @@
-import Nav from "../components/Nav"
+import Hero from "../components/Hero"
 
 
 export default function Main() {
     return (
-        <header>
-            <Nav />
-        </header>
-        
+        <>
+            <Hero />
+        </>
     )
 }
