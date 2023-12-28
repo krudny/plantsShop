@@ -4,7 +4,7 @@ export default function NewPlantCard(props) {
     return (
         <div className="card--wrapper">
             <div className="plant--img">
-                <img src={`../../public/assets/${props.item.img}`} />
+                <img src={`../src/assets/${props.item.img}`} />
             </div>
             <div className="plant--section">
                 <div className="plant--info">

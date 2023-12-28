@@ -4,6 +4,7 @@
     margin: 15px;
     background: white;
     border-radius: 20px;
+    box-shadow: 0px 0px 49px -30px rgba(66, 68, 90, 0.8);
 }
 
 .plant--img {

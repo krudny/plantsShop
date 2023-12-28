@@ -4,7 +4,6 @@ header {
     color: rgba(255, 255, 255, 0.87);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -14,7 +13,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../public/assets/hero-background.jpg');
+    background-image: url('../assets/hero-background.jpg');
     background-size: contain;
     filter: brightness(45%);
     z-index: -1;
@@ -26,7 +25,7 @@ header {
     max-width: 1200px;
     font-family: 'Playfair display';
     align-items: flex-end;
-    margin-top: 200px;
+    margin-top: 40vh;
 }
 
 .header--intro {
@@ -40,4 +39,8 @@ header {
     display: flex;
     padding-bottom: 15px;
     letter-spacing: 1.5px;
+}
+
+.white {
+    color: #ffffff;
 }

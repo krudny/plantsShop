@@ -4,9 +4,11 @@ import "../styles/hero.css"
 export default function Hero() {
     return (
         <>
+        <span className="white">
+            <Nav />
+        </span>
         <header>
             <div className="background--image"></div>
-            <Nav />
             <div className="header--wrapper">
                 <div className="header--intro">
                     GET LOST <br /> IN NATURE

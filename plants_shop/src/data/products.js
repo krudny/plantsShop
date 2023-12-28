@@ -1,0 +1,21 @@
+export default [
+    {"id": "1", "img": "1.png", "name": "Rosa", "description": "Elegant and timeless beauty.", "price": "29.99 zł"},
+    {"id": "2", "img": "2.png", "name": "Lilium", "description": "Symbol of purity and refined beauty.", "price": "34.99 zł"},
+    {"id": "3", "img": "3.png", "name": "Tulipa", "description": "Vibrant and colorful, perfect for any occasion.", "price": "19.99 zł"},
+    {"id": "4", "img": "4.png", "name": "Orchis", "description": "Exotic and mesmerizing in appearance.", "price": "42.99 zł"},
+    {"id": "5", "img": "5.png", "name": "Bellis", "description": "Simple yet sophisticated, symbol of innocence.", "price": "25.99 zł"},
+    {"id": "6", "img": "6.png", "name": "Helianthus", "description": "Bright and cheerful, brings warmth to any space.", "price": "22.99 zł"},
+    {"id": "7", "img": "7.png", "name": "Paeonia", "description": "Lush and full, symbol of prosperity.", "price": "45.99 zł"},
+    {"id": "8", "img": "8.png", "name": "Viola", "description": "Delicate and fragrant, a sign of modesty.", "price": "27.99 zł"},
+    {"id": "9", "img": "9.png", "name": "Narcissus", "description": "Symbol of rebirth and new beginnings.", "price": "31.99 zł"},
+    {"id": "10", "img": "10.png", "name": "Iris", "description": "Represents wisdom and courage.", "price": "38.99 zł"},
+    {"id": "11", "img": "11.png", "name": "Hyacinthus", "description": "Associated with sport or play in the ancient world.", "price": "33.99 zł"},
+    {"id": "12", "img": "12.png", "name": "Philodendron", "description": "A flower of divine love.", "price": "40.99 zł"},
+    {"id": "13", "img": "13.png", "name": "Aster", "description": "A symbol of love and daintiness.", "price": "36.99 zł"},
+    {"id": "14", "img": "14.png", "name": "Magnolia", "description": "A flower of happiness and longevity.", "price": "23.99 zł"},
+    {"id": "15", "img": "15.png", "name": "Anemone", "description": "Symbol of anticipation and protection against evil.", "price": "26.99 zł"},
+    {"id": "16", "img": "16.png", "name": "Alstroemeria", "description": "Symbolizes friendship and devotion.", "price": "37.99 zł"},
+    {"id": "17", "img": "17.png", "name": "Begonia", "description": "A symbol of caution and a fanciful nature.", "price": "21.99 zł"},
+    {"id": "18", "img": "18.png", "name": "Calendula", "description": "Symbol of joy and remembrance.", "price": "39.99 zł"},
+    {"id": "19", "img": "19.png", "name": "Freesia", "description": "Symbol of innocence and thoughtfulness.", "price": "28.99 zł"}
+];
