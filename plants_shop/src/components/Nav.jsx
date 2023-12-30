@@ -1,6 +1,7 @@
 import "../styles/nav.css"
 import { Route, Routes, Link } from "react-router-dom"
 
+
 export default function Nav() {
     return (
         <>
