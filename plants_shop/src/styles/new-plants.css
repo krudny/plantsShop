@@ -11,7 +11,7 @@
     padding: 10px;
 }
 
-.plant--img > img {
+.plant--img>img {
     width: 100%;
 }
 
@@ -73,7 +73,7 @@
     width: 50%;
 }
 
-.section--name > p {
+.section--name>p {
     font-size: 80px;
     font-weight: 900;
     padding: 0;

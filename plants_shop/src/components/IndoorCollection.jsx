@@ -13,7 +13,7 @@ export default function indoorCollection() {
 
     return (
         <div className="indoor-section--wrapper">
-            <p>Indoor Collection</p>
+            <p className="indoor--title">Indoor Collection</p>
             <div className="indoor-section-cards">
                 {cards}
             </div>
