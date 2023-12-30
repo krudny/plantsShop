@@ -18,12 +18,21 @@
     flex-wrap: wrap;
 }
 
-.indoor--wrapper {
+.indoor--card--wrapper {
     min-height: 300px;
     margin: 15px;
     border-radius: 20px;
-    /* display: flex; */
-    /* box-shadow: 0px 0px 49px -30px rgba(66, 68, 90, 0.8); */
+    display: flex;
+    position: relative;
+}
+
+.indoor--card--wrapper>p {
+    color: white;
+    font-size: 42px;
+    font-weight: 900;
+    position: absolute;
+    left: 0.5em;
+    bottom: 0em;
 }
 
 .indoor--img {
