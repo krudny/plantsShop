@@ -2,22 +2,22 @@ export default [
     {
         id: 1,
         img: 'new-plant-1.png',
-        name: 'Peperomia Plants',
+        name: 'Helianthus',
         description: 'Moist but well-drained',
-        price: '122,99zł',
+        price: '129.99 zł',
     },
     {
         id: 2,
         img: 'new-plant-2.png',
-        name: 'Fiddle-Leaf Fig',
+        name: 'Freesia',
         description: 'For those, who love adventures',
-        price: '86,99zł',
+        price: '28.99 zł',
     },
     {
         id: 3,
         img: 'new-plant-3.png',
-        name: 'Calathea Orbifolia',
-        description: 'Beauty in simplicity',
-        price: '99,99zł'
+        name: 'Orchis',
+        description: "Exotic and mesmerizing in appearance",
+        price: '42.99 zł'
     }
 ]

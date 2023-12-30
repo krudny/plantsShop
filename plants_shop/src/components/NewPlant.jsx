@@ -2,6 +2,8 @@ import "../styles/new-plants.css"
 import NewPlantCard from "./NewPlantCard"
 import data from "../data/newPlants"
 
+
+
 export default function NewPlant(){
     const cards = data.map((item) => {
         return (

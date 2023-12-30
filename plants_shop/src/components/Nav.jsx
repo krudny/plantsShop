@@ -12,7 +12,6 @@ export default function Nav() {
             <div className="nav--links">
                 <Link to="/"><p className="links">Home</p></Link>
                 <Link to="/shop"><p className="links">Shop</p></Link>
-                <p className="links">Discover</p>
                 <p className="links">Contact us</p>
             </div>
             <div className="nav--icons">

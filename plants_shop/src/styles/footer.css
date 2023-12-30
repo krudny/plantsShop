@@ -3,9 +3,5 @@ footer {
     justify-content: center;
     align-items: center;
     font-size: 12px;
-}
-
-.heart {
-    color: red;
-    font-size: 24px;
+    width: 100%;
 }

@@ -9,7 +9,7 @@ export default function Shop(){
     useEffect(() => {
         setTimeout(() => {
         setIsLoading(false);
-        }, Math.floor(Math.random() * (1000 - 500 + 1) + 500));
+        }, Math.floor(Math.random() * (800 - 300 + 1) + 300));
     }, []);
 
     return (

@@ -4,33 +4,38 @@ import Nav from '../components/Nav';
 import "../styles/product-page.css"
 import React, { useState, useEffect } from 'react';
 import LoadingOverlay from "../components/Overlay";
+import Footer from '../components/Footer';
 
 export default function ProductPage() {
-  let { id } = useParams();
-  const product = data.find(p => p.id === id);
+  let { name } = useParams();
+  const product = data.find(p => p.name=== name);
 
   const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         setTimeout(() => {
         setIsLoading(false);
-        }, Math.floor(Math.random() * (1000 - 500 + 1) + 500));
+        }, Math.floor(Math.random() * (700 - 300 + 1) + 300));
     }, []);
 
   return (
     <>
         <LoadingOverlay isLoading={isLoading} />
-        <Nav />
-        <div className="wrapper">
-            <div className="product--page--img">
-              <img src={`../src/assets/${product.img}`} />
-            </div>
-            <div className="product--page--info ">
-              <p className="product--page--name">{product.name}</p>
-              <p className="product--page--price">{product.price}</p>
-              <p className="product--page--description">{product.longDescription}</p>
-              <button className="add--cart">Add to cart</button>
-            </div>
+        <div className="container">
+          <Nav />
+          <div className="wrapper">
+              <div className="product--page--img">
+                <img src={`../src/assets/${product.img}`} />
+              </div>
+              <div className="product--page--info ">
+                <p className="product--page--name">{product.name}</p>
+                <p className="product--page--price">{product.price}</p>
+                <p className="product--page--description">{product.longDescription}</p>
+                <button className="add--cart">Add to cart</button>
+              </div>
+          </div>
+          <Footer />
         </div>
+        
     </>
   );
 }

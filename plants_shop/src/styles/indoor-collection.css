@@ -26,6 +26,13 @@
     border-radius: 20px;
     display: flex;
     position: relative;
+    transition: all 0.2s ease;
+}
+
+.indoor--card--wrapper:hover {
+    filter: brightness(75%);
+    cursor: pointer;
+    box-shadow: 0px 0px 80px -30px rgba(66, 68, 90, 1);
 }
 
 

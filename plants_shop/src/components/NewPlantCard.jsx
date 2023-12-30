@@ -1,22 +1,24 @@
 import "../styles/new-plants.css"
+import { Link } from "react-router-dom"
 
 export default function NewPlantCard(props) {
     return (
-        <div className="card--wrapper">
-            <div className="plant--img">
-                <img src={`../src/assets/${props.item.img}`} />
-            </div>
-            <div className="plant--section">
-                <div className="plant--info">
-                    <p className="plant--name">{props.item.name}</p>
-                    <p className="plant--description">{props.item.description}</p>
-                    <p className="plant--price">{props.item.price}</p>
+        <Link to={`/ProductPage/${props.item.name}`}>
+            <div className="card--wrapper">
+                <div className="plant--img">
+                    <img src={`../src/assets/${props.item.img}`} />
                 </div>
-                <div className="plant--arrow">
-                    <span className="material-symbols-outlined">arrow_forward</span>
+                <div className="plant--section">
+                    <div className="plant--info">
+                        <p className="plant--name">{props.item.name}</p>
+                        <p className="plant--description">{props.item.description}</p>
+                        <p className="plant--price">{props.item.price}</p>
+                    </div>
+                    <div className="plant--cart">
+                        <span className="material-symbols-outlined">shopping_cart</span>
+                    </div>
                 </div>
             </div>
-            
-        </div>
+        </Link>
     )
 }
