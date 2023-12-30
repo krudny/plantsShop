@@ -4,7 +4,7 @@ export default function AboutUsCard(props) {
     return (
         <div className="about--card-wrraper">
             <div className="about--card--icon">
-                <span class="material-symbols-outlined">
+                <span className="material-symbols-outlined">
                     {props.item.icon}
                 </span>
             </div>

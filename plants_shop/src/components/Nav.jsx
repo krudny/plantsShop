@@ -1,6 +1,5 @@
 import "../styles/nav.css"
 import { Route, Routes, Link } from "react-router-dom"
-import Shop from "../pages/Shop"
 
 export default function Nav() {
     return (
@@ -16,7 +15,7 @@ export default function Nav() {
                 <p className="links">Contact us</p>
             </div>
             <div className="nav--icons">
-                <span class="material-symbols-outlined">shopping_cart</span>
+                <span className="material-symbols-outlined">shopping_cart</span>
                 <span className="material-symbols-outlined">person</span>
             </div>
         </nav>

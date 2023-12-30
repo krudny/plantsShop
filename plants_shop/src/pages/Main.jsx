@@ -1,7 +1,7 @@
 import Hero from "../components/Hero"
 import NewPlant from "../components/NewPlant"
 import IndoorCollection from "../components/IndoorCollection"
-import HouseAd from "../components/HouseAd"
+import House from  "../components/House"
 import AboutUs from "../components/AboutUs"
 
 
@@ -12,7 +12,7 @@ export default function Main() {
             <Hero />
             <NewPlant />
             <IndoorCollection />
-            <HouseAd />
+            <House />
             <AboutUs />
         </>
     )

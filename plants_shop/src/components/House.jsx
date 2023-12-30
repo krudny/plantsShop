@@ -1,6 +1,6 @@
-import "../styles/house-ad.css"
+import "../styles/house.css"
 
-export default function HouseAd() {
+export default function House() {
     return (
         <div className="ad--section--wrapper">
             <p className="ad--title">Quality Plants and Curated Goods</p>
