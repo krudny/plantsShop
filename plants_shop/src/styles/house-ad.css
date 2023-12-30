@@ -1,0 +1,21 @@
+.ad--section--wrapper {
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ad--title {
+    font-size: 80px;
+    font-weight: 900;
+    padding: 0;
+    margin: 0 30px;
+    text-align: center;
+}
+
+.ad--text {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
