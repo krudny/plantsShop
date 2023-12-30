@@ -2,9 +2,15 @@
     width: 430px;
     min-height: 460px;
     margin: 15px;
-    background: white;
     border-radius: 20px;
     box-shadow: 0px 0px 49px -30px rgba(66, 68, 90, 0.8);
+    transition: all 0.2s ease;
+}
+
+.card--wrapper:hover {
+    filter: brightness(75%);
+    cursor: pointer;
+    box-shadow: 0px 0px 80px -30px rgba(66, 68, 90, 1);
 }
 
 .plant--img {
