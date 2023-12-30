@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0; 
     font-family: 'Roboto', 'Lato', sans-serif;
-    height: 3000px;
     background-color: white;
     overflow-x: hidden;
 }
