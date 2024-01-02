@@ -6,7 +6,7 @@ import CartItem from "./CartItem.jsx";
 
 
 export default function Cart(){
-    const { cartItems } = useCart();
+    const { cartItems, calculateTotal } = useCart();
 
     const items = cartItems.map((item) => {
         return (
@@ -24,6 +24,10 @@ export default function Cart(){
                         <p>Here are your precisely chosen plants!</p>
                         <div className="product--wrapper">
                             {items}
+                        </div>
+                        <div className="cart--total">
+                            <p>Total Amount: {calculateTotal().toFixed(2)} zł</p>
+                            <button className="add--cart">Finish order!</button>
                         </div>
                     </>) : (
                         <p>Your cart is empty :c</p> )
