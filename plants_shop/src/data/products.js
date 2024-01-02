@@ -2,7 +2,7 @@ export default [
     {
         "id": "1",
         "img": "1.png",
-        "name": "Rosa Helianthus",
+        "name": "Rosa",
         "description": "Elegant and timeless beauty.",
         "price": "29.99 zł",
         "longDescription": "Rosa Helianthus is a stunning and elegant flower known for its timeless beauty. With its combination of delicate petals and vibrant colors, it is sure to capture the hearts of those who see it. This flower is a symbol of grace and sophistication, making it a perfect choice for any occasion. Bring the elegance of Rosa Helianthus into your life today."
