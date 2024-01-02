@@ -5,6 +5,7 @@ import Nav from "./Nav.jsx";
 import CartItem from "./CartItem.jsx";
 import LoadingOverlay from "./Overlay.jsx";
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 
 export default function Cart(){
@@ -23,6 +24,10 @@ export default function Cart(){
         }, Math.floor(Math.random() * (600 - 250 + 1) + 250));
     }, []);
 
+    const resetScroll = () => {
+        window.scrollTo(0, 0);
+    };
+
 
     return (
         <>
@@ -38,7 +43,7 @@ export default function Cart(){
                         </div>
                         <div className="cart--total">
                             <p>Total Amount: {calculateTotal().toFixed(2)} zł</p>
-                            <button className="add--cart" onClick={() => reset()}>Finish order!</button>
+                            <Link to="/"><button className="add--cart" onClick={() => { reset(); resetScroll(); }}>Finish order!</button></Link>
                         </div>
                     </>) : (
                         <p>Your cart is empty :c</p> )

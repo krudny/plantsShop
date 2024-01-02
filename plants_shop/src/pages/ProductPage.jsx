@@ -6,11 +6,13 @@ import React, { useState, useEffect } from 'react';
 import LoadingOverlay from "../components/Overlay";
 import Footer from '../components/Footer';
 import {useCart} from '../components/CartContext'
+import AddedToCart from '../components/AddedToCart';
 
 export default function ProductPage() {
     let { name } = useParams();
     const product = data.find(p => p.name === name);
     const { addToCart } = useCart();
+    const [isAddedToCart, setIsAddedToCart] = useState(false);
 
     const [isLoading, setIsLoading] = useState(true);
       useEffect(() => {
@@ -18,6 +20,18 @@ export default function ProductPage() {
           setIsLoading(false);
           }, Math.floor(Math.random() * (700 - 300 + 1) + 300));
       }, []);
+
+    const handleAddToCart = () => {
+        addToCart(product);
+        setIsAddedToCart(true); 
+        setTimeout(() => {
+            setIsAddedToCart(false);
+        }, 10000); 
+    };
+
+    const closePopup = () => {
+      setIsAddedToCart(false);
+    };
 
     
 
@@ -34,7 +48,8 @@ export default function ProductPage() {
                   <p className="product--page--name">{product.name}</p>
                   <p className="product--page--price">{product.price}</p>
                   <p className="product--page--description">{product.longDescription}</p>
-                  <button className="add--cart" onClick={() => addToCart(product)}>Add to cart</button>
+                  <button className="add--cart" onClick={handleAddToCart}>Add to cart</button>
+                  {isAddedToCart && <AddedToCart closePopup={closePopup} isActive={isAddedToCart} />}
                 </div>
             </div>
             <Footer />

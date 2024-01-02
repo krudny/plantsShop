@@ -47,7 +47,7 @@
 }
 
 .plant--price {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 900;
     padding: 0;
     margin: 20px 0 0 0;
@@ -83,7 +83,7 @@
     width: 50%;
 }
 
-.section--name>p {
+.section--name > p {
     font-size: 80px;
     font-weight: 900;
     padding: 0;

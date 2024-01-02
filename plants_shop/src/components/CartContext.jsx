@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
 
     const increaseQuantity = (productId) => {
         setCartItems(prevItems => prevItems.map(item =>
-            item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+            item.id === productId && item.quantity < 9 ? { ...item, quantity: item.quantity + 1 } : item
         ));
     };
     
@@ -22,18 +22,24 @@ export const CartProvider = ({ children }) => {
     const addToCart = (product) => {
         setCartItems(prevItems => {
             const existingProductIndex = prevItems.findIndex(item => item.id === product.id);
+            
             if (existingProductIndex !== -1) {
-                const updatedItems = [...prevItems];
-                updatedItems[existingProductIndex] = {
-                    ...updatedItems[existingProductIndex],
-                    quantity: updatedItems[existingProductIndex].quantity + 1
-                };
-                return updatedItems;
+                if (prevItems[existingProductIndex].quantity < 9) {
+                    const updatedItems = [...prevItems];
+                    updatedItems[existingProductIndex] = {
+                        ...updatedItems[existingProductIndex],
+                        quantity: updatedItems[existingProductIndex].quantity + 1
+                    };
+                    return updatedItems;
+                } else {
+                    return prevItems;
+                }
             } else {
                 return [...prevItems, { ...product, quantity: 1 }];
             }
         });
     };
+    
     
     const removeFromCart = (productId) => {
         setCartItems(prevCartItems => prevCartItems.filter(item => item.id !== productId));

@@ -44,7 +44,7 @@ export default [
         "img": "6.png",
         "name": "Helianthus",
         "description": "Bright and cheerful, brings warmth to any space.",
-        "price": "129.99 zł",
+        "price": "99.99 zł",
         "longDescription": "Helianthus, commonly known as the Sunflower, is bright and cheerful, bringing warmth and happiness to any space. With its large golden petals, it represents adoration and loyalty. Helianthus is a symbol of positivity and is perfect for brightening someone's day."
     },
     {

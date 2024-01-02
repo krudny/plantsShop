@@ -48,14 +48,14 @@
 }
 
 .cart--name {
-    width: 150px;
+    width: 200px;
     font-size: 30px;
     margin: 0 0 0 40px;
     font-weight: 500;
 }
 
 .cart--price {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 700;
     margin: 0 0 0 20px;
 }

@@ -14,9 +14,9 @@ export default function NewPlantCard(props) {
                         <p className="plant--description">{props.item.description}</p>
                         <p className="plant--price">{props.item.price}</p>
                     </div>
-                    <div className="plant--cart">
+                    {/* <div className="plant--cart">
                         <span className="material-symbols-outlined">shopping_cart</span>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </Link>

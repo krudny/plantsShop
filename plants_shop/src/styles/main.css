@@ -6,7 +6,11 @@ body {
     overflow-x: hidden;
 }
 
-a{
+a {
     color: inherit;
     text-decoration: none;
+}
+
+.material-symbols-outlined {
+    user-select: none;
 }
