@@ -15,7 +15,7 @@ export default function Nav() {
             <div className="nav--links">
                 <Link to="/"><p className="links">Home</p></Link>
                 <Link to="/shop"><p className="links">Shop</p></Link>
-                <p className="links">Contact us</p>
+                <Link to="/contact"><p className="links">Contact us</p></Link>
             </div>
             <div className="nav--icons">
                 <Link to="/cart"><span className="material-symbols-outlined">shopping_cart</span></Link>
