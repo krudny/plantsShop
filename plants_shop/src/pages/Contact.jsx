@@ -23,10 +23,10 @@ export default function Contact() {
                 </div>
                 <div className="form-box flex">
                     <form className="form flex">
-                    <input type="text" className="input" id="name" placeholder="Your name" />
-                    <input type="text" className="input" id="email" placeholder="Your email" />
-                    <input type="text" className="input" id="text" placeholder="What are we going to talk about?" />
-                    <button className="add--cart" type="submit">Send</button>
+                        <input type="text" className="input" id="name" placeholder="Your name" autocomplete="off" />
+                        <input type="text" className="input" id="email" placeholder="Your email" autocomplete="off" />
+                        <input type="text" className="input" id="text" placeholder="What are we going to talk about?" autocomplete="off" />
+                        <button className="add--cart" type="submit">Send</button>
                     </form>
                 </div>
             </div>

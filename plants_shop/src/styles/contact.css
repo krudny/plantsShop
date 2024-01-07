@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     background-color: white;
@@ -10,7 +10,14 @@
 
 .contact--wrapper {
     width: 800px;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 49px -30px rgba(66, 68, 90, 0.5);
+    background: white;
 }
 
 .flex {
@@ -56,8 +63,9 @@
     flex-direction: column;
 }
 
+
 .input { 
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(242, 242, 242);
     box-shadow: 0px 0px 49px -30px rgba(66, 68, 90, 0.8);
     border: none;
     border-bottom: 2px solid #F59728;
@@ -71,6 +79,5 @@
 input:focus { 
     outline: none;
     border-bottom: 2px solid #e2851c;
-    background-color: rgb(243, 243, 243);
-    box-shadow: 0px 0px 49px -30px rgba(66, 68, 90, 0.8);
+    background-color: rgb(248, 248, 248);
 }
