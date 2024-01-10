@@ -14,8 +14,10 @@ export default function Contact() {
 
     return (
     <div className="contact--container">
-        <LoadingOverlay isLoading={isLoading}/>
+        <img className="img1" src="../../src/assets/contact.png" />
+        <img className="img2" src="../../src/assets/contact.png" /> 
         <Nav />
+        <LoadingOverlay isLoading={isLoading}/>
             <div className="contact--wrapper">
                 <div className="contact-text">
                     <p className="contact-1">How to reach us?</p>
