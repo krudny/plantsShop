@@ -14,8 +14,8 @@ export default function Contact() {
 
     return (
     <div className="contact--container">
-        <img className="img1" src="../../src/assets/contact.png" />
-        <img className="img2" src="../../src/assets/contact.png" /> 
+        <img className="img1" src="../../src/assets/contact2.png" />
+        <img className="img2" src="../../src/assets/contact2.png" /> 
         <Nav />
         <LoadingOverlay isLoading={isLoading}/>
             <div className="contact--wrapper">
