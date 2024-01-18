@@ -73,6 +73,7 @@
 .section--wrapper {
     max-width: 1200px;
     margin: 50px auto;
+    user-select: none;
 }
 
 .section--info {

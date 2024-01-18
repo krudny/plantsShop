@@ -52,7 +52,7 @@ export default function ProductPage() {
                   {isAddedToCart && <AddedToCart closePopup={closePopup} isActive={isAddedToCart} />}
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
         
     </>
