@@ -1,61 +1,62 @@
-import React, { Component } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import AuthService from "../services/AuthService";
 
-export default class Profile extends Component {
-    constructor(props) {
-        super(props);
+const Profile = () => {
+    const [redirect, setRedirect] = useState(null);
+    const [userReady, setUserReady] = useState(false);
+    const [currentUser, setCurrentUser] = useState({ username: "" });
+    const navigate = useNavigate();
 
-        this.state = {
-            redirect: null,
-            userReady: false,
-            currentUser: { username: "" }
-        };
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         const currentUser = AuthService.getCurrentUser();
 
-        if (!currentUser) this.setState({ redirect: "/" });
-        this.setState({ currentUser: currentUser, userReady: true })
-    }
-
-    render() {
-        if (this.state.redirect) {
-            return <Navigate to={this.state.redirect} />
+        if (!currentUser) {
+            setRedirect("/");
         }
 
-        const { currentUser } = this.state;
+        setCurrentUser(currentUser);
+        setUserReady(true);
+    }, []);
 
-        return (
-            <div className="container">
-                {(this.state.userReady) ?
-                    <div>
-                        <header className="jumbotron">
-                            <h3>
-                                <strong>{currentUser.username}</strong> Profile
-                            </h3>
-                        </header>
-                        <p>
-                            <strong>Token:</strong>{" "}
-                            {currentUser.token.substring(0, 20)} ...{" "}
-                            {currentUser.token.substr(currentUser.token.length - 20)}
-                        </p>
-                        <p>
-                            <strong>Id:</strong>{" "}
-                            {currentUser.id}
-                        </p>
-                        <p>
-                            <strong>Email:</strong>{" "}
-                            {currentUser.email}
-                        </p>
-                        <strong>Authorities:</strong>
-                        <ul>
-                            {currentUser.roles &&
-                                currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-                        </ul>
-                    </div> : null}
-            </div>
-        );
+    const handleButton = () => {
+        AuthService.logout();
+        // Navigate to "/"
+        navigate("/");
+    };
+
+    if (redirect) {
+        return <Navigate to={redirect} />;
     }
-}
+
+    return (
+        <div className="container">
+            {userReady ? (
+                <div>
+                    <p>
+                        <strong>Token:</strong>{" "}
+                        {currentUser.token.substring(0, 20)} ...{" "}
+                        {currentUser.token.substr(currentUser.token.length - 20)}
+                    </p>
+                    <p>
+                        <strong>Id:</strong> {currentUser.id}
+                    </p>
+                    <p>
+                        <strong>Email:</strong> {currentUser.email}
+                    </p>
+                    <strong>Authorities:</strong>
+                    <ul>
+                        {currentUser.roles &&
+                            currentUser.roles.map((role, index) => (
+                                <li key={index}>{role}</li>
+                            ))}
+                    </ul>
+                    <a href="/"> HOME </a>
+                    <button onClick={handleButton}>Log out</button>
+                </div>
+            ) : null}
+        </div>
+    );
+};
+
+export default Profile;
