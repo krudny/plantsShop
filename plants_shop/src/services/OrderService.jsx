@@ -21,6 +21,15 @@ class OrderService {
             })
     }
 
+    getCurrentUsersOrders() {
+        const currentUser = AuthService.getCurrentUser();
+        return axios.get(API_URL + "user/" + currentUser.id).then(response => {
+            return response.data;
+        }).catch(error => {
+            console.error("Error fetching user orders:", error);
+        });
+    }
+
 }
 
 export default OrderService;

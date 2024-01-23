@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import AuthService from "../services/AuthService";
+import Orders from "../components/Orders";
 
 const Profile = () => {
     const [redirect, setRedirect] = useState(null);
@@ -51,6 +52,7 @@ const Profile = () => {
                                 <li key={index}>{role}</li>
                             ))}
                     </ul>
+                    <Orders />
                     <a href="/"> HOME </a>
                     <button onClick={handleButton}>Log out</button>
                 </div>
