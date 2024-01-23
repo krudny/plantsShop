@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "../styles/indoor-collection.css"
+import "../styles/orders.css"
 import OrderBox from "./OrderBox";
 import OrderService from "../services/OrderService";
 
@@ -14,11 +14,13 @@ export default function Orders() {
     }, []);
 
     return (
-        <div>
+        <div className='order-info-container'>
             <h1>Orders</h1>
-            {orders.map((order) => (
-                <OrderBox key={order.orderID} order={order} />
-            ))}
+            <div className='orders-contiainer'>
+                {orders.map((order) => (
+                    <OrderBox key={order.orderID} order={order} />
+                ))}
+            </div>
         </div>
     )
 }

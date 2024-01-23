@@ -1,4 +1,4 @@
 package plants.spring.dtos.response;
 
-public record OrderItemResponse(Long productID, Double price, int quantity) {
+public record OrderItemResponse(String name, Double price, int quantity) {
 }

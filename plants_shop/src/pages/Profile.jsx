@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import AuthService from "../services/AuthService";
 import Orders from "../components/Orders";
+import Nav from "../components/Nav"
+import Footer from "../components/Footer"
+import "../styles/profile.css"
 
 const Profile = () => {
     const [redirect, setRedirect] = useState(null);
@@ -22,7 +25,6 @@ const Profile = () => {
 
     const handleButton = () => {
         AuthService.logout();
-        // Navigate to "/"
         navigate("/");
     };
 
@@ -31,32 +33,33 @@ const Profile = () => {
     }
 
     return (
-        <div className="container">
-            {userReady ? (
-                <div>
-                    <p>
-                        <strong>Token:</strong>{" "}
-                        {currentUser.token.substring(0, 20)} ...{" "}
-                        {currentUser.token.substr(currentUser.token.length - 20)}
-                    </p>
-                    <p>
-                        <strong>Id:</strong> {currentUser.id}
-                    </p>
-                    <p>
-                        <strong>Email:</strong> {currentUser.email}
-                    </p>
-                    <strong>Authorities:</strong>
-                    <ul>
-                        {currentUser.roles &&
-                            currentUser.roles.map((role, index) => (
-                                <li key={index}>{role}</li>
-                            ))}
-                    </ul>
-                    <Orders />
-                    <a href="/"> HOME </a>
-                    <button onClick={handleButton}>Log out</button>
-                </div>
-            ) : null}
+        <div className="profile">
+            <Nav />
+            <div className="profile-container">
+                {userReady ? (
+                    <div className="user-info-section">
+                        <h1>User information</h1>
+                        <div className="user-info-inside">
+                            <p>
+                                <strong>Email:</strong> {currentUser.email}
+                            </p>
+                            <div className="authorities">
+                                <strong>Authorities:</strong>
+                                <ul>
+                                    {currentUser.roles &&
+                                        currentUser.roles.map((role, index) => (
+                                            <li key={index}>{role}</li>
+                                        ))}
+                                </ul>
+                            </div>
+                        </div>
+                        <button onClick={handleButton} className="log-out">Log out</button>
+                    </div>
+                ) : null}
+                <hr />
+                <Orders />
+            </div>
+            <Footer />
         </div>
     );
 };

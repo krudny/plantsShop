@@ -52,22 +52,12 @@ public class OrderService {
     }
 
     public List<OrderResponse> getUserOrders(Long userID){
-//        List<Order> orderList = orderRepository.findByUserId(userID);
-//        List<OrderResponse> orderResponseList = new ArrayList<>();
-//        for (Order order : orderList) {
-//            orderResponseList.add(
-//                    new OrderResponse(
-//                            order.getId(),
-//                            order.getOrderDate(),
-//                            orderItemRepository.findByOrderId(order.getId())));
-//        }
-//        return orderResponseList;
         List<Order> userOrders = orderRepository.findByUserId(userID);
         return userOrders.stream()
                 .map(order -> {
                     List<OrderItem> orderItems = orderItemRepository.findByOrderId(order.getId());
                     List<OrderItemResponse> orderItemResponses = orderItems.stream()
-                            .map(orderItem -> new OrderItemResponse(orderItem.getProduct().getId(), orderItem.getPrice(), orderItem.getQuantity()))
+                            .map(orderItem -> new OrderItemResponse(orderItem.getProduct().getName(), orderItem.getPrice(), orderItem.getQuantity()))
                             .collect(Collectors.toList());
                     return new OrderResponse(order.getId(), order.getOrderDate(), orderItemResponses);
                 }).collect(Collectors.toList());
