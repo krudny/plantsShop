@@ -1,4 +1,4 @@
-package plants.spring.payload.response;
+package plants.spring.dtos.response;
 
 import java.util.List;
 

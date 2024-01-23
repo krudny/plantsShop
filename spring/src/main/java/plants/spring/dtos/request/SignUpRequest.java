@@ -1,4 +1,4 @@
-package plants.spring.payload.request;
+package plants.spring.dtos.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
