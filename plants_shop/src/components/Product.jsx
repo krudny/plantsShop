@@ -12,7 +12,7 @@ export default function Product(props) {
                 <div className="product--info">
                     <p className="product--name">{props.item.name}</p>
                     <p className="product--description">{props.item.description}</p>
-                    <p className="product--price">{props.item.price}</p>
+                    <p className="product--price">{props.item.price} zł</p>
                 </div>
             </div>
         </Link>
