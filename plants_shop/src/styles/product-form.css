@@ -1,0 +1,14 @@
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.input-group>input {
+    margin-top: 5px;
+}
+
+.input-group>textarea {
+    margin-top: 5px;
+    min-height: 100px;
+}

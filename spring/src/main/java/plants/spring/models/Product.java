@@ -29,8 +29,8 @@ public class Product {
         return product_id;
     }
 
-    public void setId(Long id) {
-        this.product_id = id;
+    public void setId(Long product_id) {
+        this.product_id = product_id;
     }
 
     public String getImage() {
@@ -71,5 +71,17 @@ public class Product {
 
     public void setLong_description(String long_description) {
         this.long_description = long_description;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "product_id=" + product_id +
+                ", image='" + image + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", long_description='" + long_description + '\'' +
+                '}';
     }
 }

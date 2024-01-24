@@ -6,8 +6,9 @@ import Contact from "../src/pages/Contact"
 import Login from "../src/pages/Login"
 import Register from "../src/pages/Register"
 import Profile from "../src/pages/Profile"
-import BoardUser from "../src/pages/BoardUser"
 import BoardAdmin from "../src/pages/BoardAdmin"
+import AdminProducts from "./components/AdminProducts"
+import UpdateProductPage from "./pages/UpdateProduct"
 import { Route, Routes, Link } from "react-router-dom"
 
 
@@ -23,8 +24,9 @@ export default function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/user" element={<BoardUser />} />\
                 <Route path="/admin" element={<BoardAdmin />} />
+                <Route path="/adminproducts" element={<AdminProducts />} />
+                <Route path="/updateproduct/:productId" element={<UpdateProductPage />} />
             </Routes>
         </>
     )
