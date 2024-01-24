@@ -1,12 +1,33 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import LoadingOverlay from "../components/Overlay";
 import "../styles/admin-products.css"
 import AdminProduct from "./AdminProduct"
+import AuthService from "../services/AuthService";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
 export default function AdminProducts() {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, Math.floor(Math.random() * (1000 - 500 + 1) + 500));
+    }, []);
+
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const currentUser = AuthService.getCurrentUser();
+
+
+        if (!currentUser || !currentUser.roles || !currentUser.roles.includes('ROLE_ADMIN')) {
+            navigate('/');
+        }
+    }, [navigate]);
 
     useEffect(() => {
         axios.get("http://localhost:8080/api/products")
@@ -22,6 +43,7 @@ export default function AdminProducts() {
     return (
         <div>
             <Nav />
+            <LoadingOverlay isLoading={isLoading} />
             {productComponents}
             <Footer />
         </div>

@@ -4,6 +4,7 @@ import AuthService from "../services/AuthService";
 import Orders from "../components/Orders";
 import Nav from "../components/Nav"
 import Footer from "../components/Footer"
+import LoadingOverlay from "../components/Overlay";
 import "../styles/profile.css"
 
 const Profile = () => {
@@ -23,6 +24,15 @@ const Profile = () => {
         setUserReady(true);
     }, []);
 
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, Math.floor(Math.random() * (1000 - 500 + 1) + 500));
+    }, []);
+
+
     const handleButton = () => {
         AuthService.logout();
         navigate("/");
@@ -35,6 +45,7 @@ const Profile = () => {
     return (
         <div className="profile">
             <Nav />
+            <LoadingOverlay isLoading={isLoading} />
             <div className="profile-container">
                 {userReady ? (
                     <div className="user-info-section">
