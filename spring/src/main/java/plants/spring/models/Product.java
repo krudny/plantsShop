@@ -16,8 +16,8 @@ public class Product {
 
     public Product(){}
 
-    public Product(Long id, String image, String name, String description, double price, String long_description) {
-        this.product_id = id;
+    public Product(String image, String name, String description, double price, String long_description) {
+//        this.product_id = id;
         this.image = image;
         this.name = name;
         this.description = description;

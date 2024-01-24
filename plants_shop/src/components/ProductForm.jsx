@@ -45,6 +45,7 @@ const ProductForm = ({ product, onSubmit }) => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
+                    autoComplete='off'
                 />
                 {formik.touched.name && formik.errors.name && (
                     <div className="error-message" role="alert">
@@ -63,6 +64,7 @@ const ProductForm = ({ product, onSubmit }) => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.description}
+                    autoComplete='off'
                 />
                 {formik.touched.description && formik.errors.description && (
                     <div className="error-message" role="alert">
@@ -81,6 +83,7 @@ const ProductForm = ({ product, onSubmit }) => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.image}
+                    autoComplete='off'
                 />
                 {formik.touched.image && formik.errors.image && (
                     <div className="error-message" role="alert">
@@ -99,6 +102,7 @@ const ProductForm = ({ product, onSubmit }) => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.price}
+                    autoComplete='off'
                 />
                 {formik.touched.price && formik.errors.price && (
                     <div className="error-message" role="alert">
@@ -116,6 +120,7 @@ const ProductForm = ({ product, onSubmit }) => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.long_description}
+                    autoComplete='off'
                 />
                 {formik.touched.long_description && formik.errors.long_description && (
                     <div className="error-message" role="alert">
@@ -126,7 +131,7 @@ const ProductForm = ({ product, onSubmit }) => {
 
             <button className="add--cart" type="submit" disabled={formik.isSubmitting}>
                 {formik.isSubmitting && <span className="spinner-border spinner-border-sm"></span>}
-                <span>Update Product</span>
+                <span>Save Product</span>
             </button>
         </form>
     );

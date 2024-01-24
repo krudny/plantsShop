@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, json } from 'react-router-dom';
 import ProductForm from '../components/ProductForm';
 import AuthService from "../services/AuthService";
 import LoadingOverlay from "../components/Overlay";
@@ -8,7 +8,7 @@ import '../styles/contact.css';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
-const UpdateProductPage = () => {
+const AddProductPage = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -16,9 +16,6 @@ const UpdateProductPage = () => {
             setIsLoading(false);
         }, Math.floor(Math.random() * (1000 - 500 + 1) + 500));
     }, []);
-
-    const { productId } = useParams();
-    const [productDetails, setProductDetails] = useState(null);
 
     const navigate = useNavigate();
     useEffect(() => {
@@ -29,22 +26,10 @@ const UpdateProductPage = () => {
         }
     }, [navigate]);
 
-    useEffect(() => {
-        const fetchProductDetails = async () => {
-            try {
-                const details = await ProductService.getProductById(productId);
-                setProductDetails(details);
-            } catch (error) {
-                console.error('Error fetching product details:', error);
-            }
-        };
-
-        fetchProductDetails();
-    }, [productId]);
-
     const handleUpdate = async (updatedProduct) => {
         try {
-            await ProductService.updateProduct(updatedProduct);
+            delete updatedProduct.product_id;
+            await ProductService.addProduct(updatedProduct);
             navigate('/adminproducts');
         } catch (error) {
             console.error('Error updating product:', error);
@@ -59,13 +44,13 @@ const UpdateProductPage = () => {
             <LoadingOverlay isLoading={isLoading} />
             <div className="contact--wrapper">
                 <div className="contact-text">
-                    <p className="contact-1">Update Product</p>
+                    <p className="contact-1">Add Product</p>
                 </div>
-                {productDetails && <ProductForm product={productDetails} onSubmit={handleUpdate} />}
+                {<ProductForm product={{}} onSubmit={handleUpdate} />}
             </div>
             <Footer />
         </div>
     );
 };
 
-export default UpdateProductPage;
+export default AddProductPage;

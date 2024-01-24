@@ -11,6 +11,7 @@ import Profile from "../src/pages/Profile"
 import BoardAdmin from "../src/pages/BoardAdmin"
 import AdminProducts from "./components/AdminProducts"
 import UpdateProductPage from "./pages/UpdateProduct"
+import AddProductPage from './pages/AddProduct';
 
 export default function App() {
     return (
@@ -27,6 +28,7 @@ export default function App() {
                 <Route path="/admin" element={<BoardAdmin />} />
                 <Route path="/adminproducts" element={<AdminProducts />} />
                 <Route path="/updateproduct/:productId" element={<UpdateProductPage />} />
+                <Route path="/addproduct" element={<AddProductPage />} />
             </Routes>
         </>
     )

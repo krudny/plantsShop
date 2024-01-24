@@ -40,10 +40,18 @@ export default function AdminProducts() {
             <AdminProduct key={item.id} product={item} />
         )
     })
+
+    const handleAddButton = () => {
+        navigate('/addproduct');
+    }
+
     return (
         <div>
             <Nav />
             <LoadingOverlay isLoading={isLoading} />
+            <div className="admin-button-box">
+                <button className="admin-button" onClick={handleAddButton}>add new product</button>
+            </div>
             {productComponents}
             <Footer />
         </div>

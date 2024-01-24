@@ -12,7 +12,8 @@ export default function Product({ product }) {
     };
 
     const handleRemoveClick = () => {
-        ProductService.deleteProduct(product.id)
+        ProductService.deleteProduct(product.id);
+        navigate('/adminproducts');
     }
 
     return (

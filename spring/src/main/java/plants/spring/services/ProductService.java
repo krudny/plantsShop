@@ -19,11 +19,11 @@ public class ProductService {
     }
 
     public Product addProduct(Product product) {
+//        System.out.println(product);
         return productRepository.save(product);
     }
 
     public void updateProduct(Product product) {
-        System.out.println(product);
         if (productRepository.existsById(product.getId())) {
             productRepository.save(product);
         }

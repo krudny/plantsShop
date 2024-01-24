@@ -45,6 +45,11 @@
     width: 30vh;
 }
 
+.admin-button-box {
+    display: flex;
+    justify-content: center;
+}
+
 .admin-button {
     height: 50px;
     border: 1px solid #f4901d;
