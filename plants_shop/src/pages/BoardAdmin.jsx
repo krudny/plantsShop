@@ -1,43 +1,37 @@
-import React, { Component } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-import UserService from "../services/UserService";
+import Nav from "../components/Nav"
+import Footer from "../components/Footer"
+import "../styles/contact.css"
+import "../styles/admin-board.css"
 
-export default class BoardAdmin extends Component {
-    constructor(props) {
-        super(props);
+const BoardAdmin = () => {
+    const navigate = useNavigate();
 
-        this.state = {
-            content: ""
-        };
+    const handleProfile = () => {
+        navigate("/profile");
     }
 
-    componentDidMount() {
-        UserService.getAdminBoard().then(
-            response => {
-                this.setState({
-                    content: response.data
-                });
-            },
-            error => {
-                this.setState({
-                    content:
-                        (error.response &&
-                            error.response.data &&
-                            error.response.data.message) ||
-                        error.message ||
-                        error.toString()
-                });
-            }
-        );
+    const handleProducts = () => {
+        navigate("/adminproducts")
     }
 
-    render() {
-        return (
-            <div className="container">
-                <header className="jumbotron">
-                    <h3>{this.state.content}</h3>
-                </header>
+    return (
+        <div className="admin-board-container">
+            <Nav />
+            <div className="admin-board-wrapper">
+                <h1>Welcome to admin board!</h1>
+                <div className="admin-board-buttons">
+                    <button className="admin-board-button" onClick={handleProfile}>see profile</button>
+                    <button className="admin-board-button" onClick={handleProducts}>see products</button>
+                    {/* <button className="admin-board-button">see users</button> */}
+                </div>
             </div>
-        );
-    }
-}
+            <Footer />
+
+        </div>
+    );
+};
+
+export default BoardAdmin;

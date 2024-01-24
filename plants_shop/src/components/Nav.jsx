@@ -10,7 +10,17 @@ export default function Nav() {
     const [userLink, setUserLink] = useState("/login");
 
     useEffect(() => {
-        setUserLink(AuthService.getCurrentUser() ? "/profile" : "/login");
+        const currentUser = AuthService.getCurrentUser();
+
+        if (currentUser) {
+            if (currentUser.roles && currentUser.roles.includes("ROLE_ADMIN")) {
+                setUserLink("/admin");
+            } else {
+                setUserLink("/profile");
+            }
+        } else {
+            setUserLink("/login");
+        }
     }, [AuthService.getCurrentUser()]);
 
     return (
