@@ -1,3 +1,5 @@
+## Project is not finished yet.
+
 PlantsShop is an online plants shop developed during web applications course. 
 
 Key features:
@@ -6,3 +8,8 @@ Key features:
 - database to store users and orders data [SQL]
 - user registration and login
 - purchase history
+
+Authors 
+
+- Kamil Rudny [GitHub](https://github.com/krudny)
+- Katarzyna Lisiecka [GitHub](https://github.com/lisieckaK00)
