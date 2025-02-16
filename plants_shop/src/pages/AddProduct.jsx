@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, json } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProductForm from '../components/ProductForm';
 import AuthService from "../services/AuthService";
 import LoadingOverlay from "../components/Overlay";

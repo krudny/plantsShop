@@ -12,8 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-//    @Autowired
-//    ProductRepository productRepository;
     @Autowired
     private ProductService productService;
 
@@ -34,7 +32,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public void updateProduct(@PathVariable Long id, @RequestBody Product product) {
-        product.setId(id);
+        product.setProduct_id(id);
         productService.updateProduct(product);
     }
 
@@ -43,8 +41,4 @@ public class ProductController {
         productService.deleteProduct(id);
     }
 
-//    @GetMapping
-//    public List<Product> getAllProducts(){
-//        return productRepository.findAll();
-//    }
 }

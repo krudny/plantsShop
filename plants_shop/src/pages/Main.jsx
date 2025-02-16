@@ -5,9 +5,7 @@ import House from  "../components/House"
 import AboutUs from "../components/AboutUs"
 import Footer from "../components/Footer"
 import LoadingOverlay from "../components/Overlay"
-import React, { useState, useEffect } from 'react';
-
-
+import { useState, useEffect } from 'react';
 
 export default function Main() {
     const [isLoading, setIsLoading] = useState(true);

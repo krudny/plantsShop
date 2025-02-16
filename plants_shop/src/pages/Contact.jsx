@@ -2,7 +2,7 @@ import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import LoadingOverlay from "../components/Overlay";
 import "../styles/contact.css";
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Contact() {
     const [isLoading, setIsLoading] = useState(true);
@@ -25,9 +25,9 @@ export default function Contact() {
                 </div>
                 <div className="form-box flex">
                     <form className="form flex">
-                        <input type="text" className="input" id="name" placeholder="Your name" autocomplete="off" />
-                        <input type="text" className="input" id="email" placeholder="Your email" autocomplete="off" />
-                        <input type="text" className="input" id="text" placeholder="What are we going to talk about?" autocomplete="off" />
+                        <input type="text" className="input" id="name" placeholder="Your name" autoComplete="off" />
+                        <input type="text" className="input" id="email" placeholder="Your email" autoComplete="off" />
+                        <input type="text" className="input" id="text" placeholder="What are we going to talk about?" autoComplete="off" />
                         <button className="add--cart" type="submit">Send</button>
                     </form>
                 </div>

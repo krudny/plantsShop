@@ -1,6 +1,7 @@
 package plants.spring.services;
 
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import plants.spring.dtos.request.OrderItemRequest;
@@ -21,17 +22,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class OrderService {
-    @Autowired
     private OrderRepository orderRepository;
-
-    @Autowired
     private OrderItemRepository orderItemRepository;
-
-    @Autowired
     private ProductRepository productRepository;
-
-    @Autowired
     private UserRepository userRepository;
 
     @Transactional
@@ -55,11 +50,11 @@ public class OrderService {
         List<Order> userOrders = orderRepository.findByUserId(userID);
         return userOrders.stream()
                 .map(order -> {
-                    List<OrderItem> orderItems = orderItemRepository.findByOrderId(order.getId());
+                    List<OrderItem> orderItems = orderItemRepository.findByOrder_OrderId(order.getOrderId());
                     List<OrderItemResponse> orderItemResponses = orderItems.stream()
                             .map(orderItem -> new OrderItemResponse(orderItem.getProduct().getName(), orderItem.getPrice(), orderItem.getQuantity()))
                             .collect(Collectors.toList());
-                    return new OrderResponse(order.getId(), order.getOrderDate(), orderItemResponses);
+                    return new OrderResponse(order.getOrderId(), order.getOrderDate(), orderItemResponses);
                 }).collect(Collectors.toList());
     }
 }

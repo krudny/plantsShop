@@ -2,9 +2,8 @@ import { useParams } from 'react-router-dom';
 import data from '../data/products'
 import Nav from '../components/Nav';
 import "../styles/product-page.css"
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import LoadingOverlay from "../components/Overlay";
-import Footer from '../components/Footer';
 import {useCart} from '../components/CartContext'
 import AddedToCart from '../components/AddedToCart';
 

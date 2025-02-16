@@ -1,7 +1,7 @@
 import Nav from "../components/Nav"
 import Products from "../components/Products"
 import Footer from "../components/Footer"
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import LoadingOverlay from "../components/Overlay";
 
 export default function Shop(){

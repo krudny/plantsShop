@@ -5,7 +5,7 @@ import "../styles/contact.css";
 import "../styles/form.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 

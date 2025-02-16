@@ -6,5 +6,5 @@ import plants.spring.models.OrderItem;
 import java.util.List;
 
 public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {
-    List<OrderItem> findByOrderId(Long orderId);
+    List<OrderItem> findByOrder_OrderId(Long orderOrderId);
 }
