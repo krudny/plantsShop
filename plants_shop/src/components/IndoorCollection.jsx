@@ -7,7 +7,7 @@ export default function indoorCollection() {
 
     const cards = data.map((item) => {
         return (
-            <IndoorCollectionCard key={item.id} item={item} width={cardWidths[item.id - 1]} />
+            <IndoorCollectionCard key={item.id} item={item}  />
         )
     })
 

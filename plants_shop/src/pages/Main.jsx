@@ -10,7 +10,7 @@ export default function Main() {
         <>
             <Hero />
             <NewPlant />
-            {/*<IndoorCollection />*/}
+            <IndoorCollection />
             {/*<House />*/}
             {/*<AboutUs />*/}
             {/*<Footer />*/}
