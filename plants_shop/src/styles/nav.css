@@ -1,6 +1,6 @@
 nav {
-    font-family: 'Playfair display';
-    min-width: 100vw;
+    font-family: 'Playfair display', sans-serif;
+    width: 100vw;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -13,9 +13,10 @@ nav {
 .nav--logo {
     display: flex;
     font-size: 60px;
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     font-weight: 900;
     width: 200px;
+    margin-left: 20px;
 }
 
 .nav--links {
@@ -44,3 +45,41 @@ nav {
     align-items: center;
     padding: 10px;
 }
+
+@media (max-width: 720px) {
+    .nav--logo {
+        display: none;
+    }
+
+    .nav--links {
+        font-size: 22px;
+    }
+
+    .links {
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    nav {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .nav--links {
+        font-size: 22px;
+        width: 100vw;
+    }
+
+    .nav--icons {
+        margin: auto;
+        justify-content: center;
+        width: 100vw;
+    }
+
+    .material-symbols-outlined {
+        font-size: 34px;
+    }
+
+}
+

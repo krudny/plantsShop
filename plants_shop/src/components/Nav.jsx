@@ -1,12 +1,10 @@
 import "../styles/nav.css"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
-import { useCart } from "../components/CartContext"
 import AuthService from '../services/AuthService';
 
 
 export default function Nav() {
-    const { cartItems } = useCart();
     const [userLink, setUserLink] = useState("/login");
 
     useEffect(() => {
