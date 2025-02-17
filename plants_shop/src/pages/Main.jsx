@@ -11,7 +11,7 @@ export default function Main() {
             <Hero />
             <NewPlant />
             <IndoorCollection />
-            {/*<House />*/}
+            <House />
             {/*<AboutUs />*/}
             {/*<Footer />*/}
         </>
