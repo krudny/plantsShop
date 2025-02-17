@@ -2,7 +2,7 @@ import "../styles/about-us.css"
 
 export default function AboutUsCard(props) {
     return (
-        <div className="about--card-wrraper">
+        <div className="about--card-wrapper">
             <div className="about--card--icon">
                 <span className="material-symbols-outlined">
                     {props.item.icon}

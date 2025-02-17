@@ -12,8 +12,8 @@ export default function Main() {
             <NewPlant />
             <IndoorCollection />
             <House />
-            {/*<AboutUs />*/}
-            {/*<Footer />*/}
+            <AboutUs />
+            <Footer />
         </>
     )
 }
