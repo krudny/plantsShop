@@ -2,8 +2,7 @@ import { useParams } from 'react-router-dom';
 import data from '../data/products'
 import Nav from '../components/Nav';
 import "../styles/product-page.css"
-import { useState, useEffect } from 'react';
-import LoadingOverlay from "../components/Overlay";
+import { useState } from 'react';
 import {useCart} from '../components/CartContext'
 import AddedToCart from '../components/AddedToCart';
 
@@ -13,12 +12,6 @@ export default function ProductPage() {
     const { addToCart } = useCart();
     const [isAddedToCart, setIsAddedToCart] = useState(false);
 
-    const [isLoading, setIsLoading] = useState(true);
-      useEffect(() => {
-          setTimeout(() => {
-          setIsLoading(false);
-          }, Math.floor(Math.random() * (700 - 300 + 1) + 300));
-      }, []);
 
     const handleAddToCart = () => {
         addToCart(product);
@@ -32,13 +25,12 @@ export default function ProductPage() {
       setIsAddedToCart(false);
     };
 
-    
 
     return (
     <>
-        <LoadingOverlay isLoading={isLoading} />
+        <Nav />
         <div className="container">
-            <Nav />
+
             <div className="wrapper">
                 <div className="product--page--img">
                   <img src={`../src/assets/${product.img}`} />
@@ -51,7 +43,6 @@ export default function ProductPage() {
                   {isAddedToCart && <AddedToCart closePopup={closePopup} isActive={isAddedToCart} />}
                 </div>
             </div>
-            {/* <Footer /> */}
         </div>
         
     </>

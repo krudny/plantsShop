@@ -61,7 +61,7 @@ nav {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 460px) {
     nav {
         flex-direction: column;
         height: 100%;

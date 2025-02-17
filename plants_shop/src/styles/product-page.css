@@ -8,7 +8,6 @@
 
 .product--page--img {
     width: 50%;
-    margin-right: 50px;
     pointer-events: none;
     user-select: none;
 }
@@ -26,10 +25,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: auto 40px;
 }
 
 .product--page--name {
-    font-family: 'Playfair display';
+    font-family: 'Playfair display', sans-serif;
     font-weight: 700;
     font-size: 52px;
     letter-spacing: 1px;
@@ -59,14 +59,14 @@
     border: 1px solid #f4901d; 
     background: #F59728;
     text-transform: uppercase;
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
     letter-spacing: 1px;
     font-weight: 900;
     font-size: 13px;
     margin-top: 30px;
     margin-bottom: 30px;
     color: white;
-    box-shadow: 0px 0px 49px -30px rgba(66, 68, 90, 0.8);
+    box-shadow: 0 0 49px -30px rgba(66, 68, 90, 0.8);
     transition: all 0.2s ease;
     user-select: none;
 }
@@ -74,11 +74,50 @@
 .add--cart:hover {
     background: #ca7b04; 
     cursor: pointer;
-    box-shadow: 0px 0px 80px -30px rgba(66, 68, 90, 1);
+    box-shadow: 0 0 80px -30px rgba(66, 68, 90, 1);
 }
 
 .container {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+@media (max-width: 1100px) {
+    .container {
+        max-width: 100vw;
+        margin: auto 20px;
+    }
+
+    .wrapper {
+        width: 100%;
+        margin: auto;
+    }
+
+    .product--page--info {
+        margin: auto 25px;
+    }
+}
+
+@media (max-width: 800px) {
+    .wrapper {
+        margin-top: 60px;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .product--page--img, .product--page--info {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .product--page--img {
+        width: 100%;
+    }
+
+    .product--page--info {
+        width: 100%;
+        margin-top: 30px;
+    }
 }
