@@ -9,7 +9,7 @@ export default function Main() {
     return (
         <>
             <Hero />
-            {/*<NewPlant />*/}
+            <NewPlant />
             {/*<IndoorCollection />*/}
             {/*<House />*/}
             {/*<AboutUs />*/}
