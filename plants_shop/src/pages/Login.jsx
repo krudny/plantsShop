@@ -3,7 +3,7 @@ import "../styles/contact.css";
 import "../styles/form.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 import AuthService from "../services/AuthService";
@@ -57,7 +57,7 @@ export default function Login() {
                     <>
                         <div className="login--tabs">
                             <p className="sign--btn login--active">Sign in</p>
-                            <a href="/register"><p className="sign--btn login--notactive">Sign up</p></a>
+                            <Link to="/register"><p className="sign--btn login--notactive">Sign up</p></Link>
                         </div>
 
                         <form className="login--form" onSubmit={formik.handleSubmit}>

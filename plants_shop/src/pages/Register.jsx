@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import AuthService from '../services/AuthService';
@@ -71,7 +71,7 @@ const Register = () => {
                 <div className="background--image"></div>
                 <div className="login--wrapper">
                     <div className="login--tabs">
-                        <a href="/login"><p className="sign--btn login--notactive">Sign in</p></a>
+                        <Link to="/login"><p className="sign--btn login--notactive">Sign in</p></Link>
                         <p className="sign--btn login--active">Sign up</p>
                     </div>
 

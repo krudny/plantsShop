@@ -33,7 +33,7 @@ export default function ProductPage() {
             <Nav />
             <div className="wrapper">
                 <div className="product--page--img">
-                  <img src={`${product.img}`} />
+                  <img src={`../${product.img}`} />
                 </div>
                 <div className="product--page--info ">
                   <p className="product--page--name">{product.name}</p>
