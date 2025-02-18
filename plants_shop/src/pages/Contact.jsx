@@ -1,23 +1,16 @@
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
-import LoadingOverlay from "../components/Overlay";
 import "../styles/contact.css";
-import { useState, useEffect } from 'react';
 
 export default function Contact() {
-    const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
-        setTimeout(() => {
-        setIsLoading(false);
-        }, Math.floor(Math.random() * (1000 - 500 + 1) + 500));
-    }, []);
-
     return (
-    <div className="contact--container">
-        <img className="img1" src="../../src/assets/contact2.png" />
-        <img className="img2" src="../../src/assets/contact2.png" /> 
-        <Nav />
-        <LoadingOverlay isLoading={isLoading}/>
+        <>
+
+        <div className="contact--container">
+            <Nav />
+            <img className="img1" src="../../src/assets/contact2.png" />
+            <img className="img2" src="../../src/assets/contact2.png" />
+
             <div className="contact--wrapper">
                 <div className="contact-text">
                     <p className="contact-1">How to reach us?</p>
@@ -32,7 +25,9 @@ export default function Contact() {
                     </form>
                 </div>
             </div>
-        <Footer />
-    </div>
+            <Footer />
+        </div>
+
+        </>
     );
 }
