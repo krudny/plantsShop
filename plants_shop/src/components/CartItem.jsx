@@ -6,7 +6,7 @@ export default function CartItem(props){
 
     return (
         <div className="product">
-            <img className="cart--img" src={`../src/assets/${props.item.img}`}></img>
+            <img className="cart--img" src={`${props.item.img}`}></img>
             <div className="info--wrapper">
                 <div className="info">
                     <p className="cart--name">{props.item.name}</p>
