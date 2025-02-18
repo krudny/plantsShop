@@ -6,7 +6,7 @@ export default function NewPlantCard(props) {
         <Link to={`/ProductPage/${props.item.name}`}>
             <div className="card--wrapper">
                 <div className="plant--img">
-                    <img src={`../src/assets/${props.item.img}`} />
+                    <img src={`${props.item.img}`} />
                 </div>
                 <div className="plant--section">
                     <div className="plant--info">

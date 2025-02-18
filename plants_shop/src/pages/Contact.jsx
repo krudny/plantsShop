@@ -8,8 +8,8 @@ export default function Contact() {
 
         <div className="contact--container">
             <Nav />
-            <img className="img1" src="../../src/assets/contact2.png" />
-            <img className="img2" src="../../src/assets/contact2.png" />
+            <img className="img1" src="contact2.png" />
+            <img className="img2" src="contact2.png" />
 
             <div className="contact--wrapper">
                 <div className="contact-text">
