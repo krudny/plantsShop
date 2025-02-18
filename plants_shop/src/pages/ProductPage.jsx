@@ -28,9 +28,9 @@ export default function ProductPage() {
 
     return (
     <>
-        <Nav />
-        <div className="container">
 
+        <div className="container">
+            <Nav />
             <div className="wrapper">
                 <div className="product--page--img">
                   <img src={`../src/assets/${product.img}`} />
