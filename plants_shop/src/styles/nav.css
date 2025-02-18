@@ -8,6 +8,7 @@ nav {
     justify-self: flex-start;
     z-index: 4;
     user-select: none;
+    margin: 0 auto;
 }
 
 .nav--logo {
@@ -34,7 +35,7 @@ nav {
 
 .nav--icons {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
     margin-top: 10px;
     width: 200px;

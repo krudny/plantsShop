@@ -1,6 +1,5 @@
 import "../styles/cart.css"
-import {useCart} from "../components/CartContext.jsx"
-import data from "../data/products.js"
+import {useCart} from "./CartContext.jsx"
 
 export default function CartItem(props){
     const { removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
@@ -9,14 +8,22 @@ export default function CartItem(props){
         <div className="product">
             <img className="cart--img" src={`../src/assets/${props.item.img}`}></img>
             <div className="info--wrapper">
-                <p className="cart--name">{props.item.name}</p>
-                <p className="cart--description">{props.item.description}</p>
-                <p className="cart--price">{props.item.price}</p>
-                <div className="buttons--wrapper">
+                <div className="info">
+                    <p className="cart--name">{props.item.name}</p>
+                    <p className="cart--description">{props.item.description}</p>
+                </div>
+                <div className="info--price">
+                    <p className="cart--price">{props.item.price}</p>
                     <p className="quantity">Quantity: {props.item.quantity}</p>
-                    <span className="material-symbols-outlined cart--btn" onClick={() => increaseQuantity(props.item.id)}>add</span>
-                    <span className="material-symbols-outlined cart--btn" onClick={() => decreaseQuantity(props.item.id)}>remove</span>
-                    <span className="material-symbols-outlined cart--btn" onClick={() => removeFromCart(props.item.id)} >close</span>
+                </div>
+
+                <div className="buttons--wrapper">
+                    <span className="material-symbols-outlined cart--btn"
+                          onClick={() => increaseQuantity(props.item.id)}>add</span>
+                    <span className="material-symbols-outlined cart--btn"
+                          onClick={() => decreaseQuantity(props.item.id)}>remove</span>
+                    <span className="material-symbols-outlined cart--btn"
+                          onClick={() => removeFromCart(props.item.id)}>close</span>
                 </div>
             </div>
         </div>

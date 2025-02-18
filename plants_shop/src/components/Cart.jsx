@@ -1,12 +1,9 @@
 import "../styles/cart.css"
-import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-
-import { useCart } from "../components/CartContext.jsx"
+import { useCart } from "./CartContext.jsx"
 import Footer from "./Footer.jsx";
 import Nav from "./Nav.jsx";
 import CartItem from "./CartItem.jsx";
-import LoadingOverlay from "./Overlay.jsx";
 import OrderService from "../services/OrderService.jsx";
 
 
@@ -15,27 +12,17 @@ export default function Cart() {
     const orderService = new OrderService();
 
     const items = cartItems.map((item) => {
-        console.log(item);
         return (
             <CartItem key={item.id} item={item} />
         )
     })
 
-    const [isLoading, setIsLoading] = useState(true);
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, Math.floor(Math.random() * (600 - 250 + 1) + 250));
-    }, []);
-
     const resetScroll = () => {
         window.scrollTo(0, 0);
     };
 
-
     return (
         <>
-            <LoadingOverlay isLoading={isLoading} />
             <div className="cart--container">
                 <Nav />
                 <div className="items--wrapper">
