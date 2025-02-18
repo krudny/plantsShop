@@ -7,7 +7,7 @@ export default function Product(props) {
         <Link to={`/ProductPage/${props.item.name}`}>
             <div className="product--box">
                 <div className="product--img">
-                    <img src={`../src/assets/${props.item.image}`} />
+                    <img src={`${props.item.image}`} />
                 </div>
                 <div className="product--info">
                     <p className="product--name">{props.item.name}</p>
