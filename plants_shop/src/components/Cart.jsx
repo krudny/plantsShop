@@ -5,9 +5,11 @@ import Footer from "./Footer.jsx";
 import Nav from "./Nav.jsx";
 import CartItem from "./CartItem.jsx";
 import OrderService from "../services/OrderService.jsx";
+import {resetScroll} from "../utils/resetScroll.jsx";
 
 
 export default function Cart() {
+    resetScroll();
     const { cartItems, calculateTotal, reset } = useCart();
     const orderService = new OrderService();
 
@@ -16,10 +18,6 @@ export default function Cart() {
             <CartItem key={item.id} item={item} />
         )
     })
-
-    const resetScroll = () => {
-        window.scrollTo(0, 0);
-    };
 
     return (
         <>

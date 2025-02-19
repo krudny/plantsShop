@@ -5,30 +5,30 @@ import "../styles/product-page.css"
 import { useState } from 'react';
 import {useCart} from '../components/CartContext'
 import AddedToCart from '../components/AddedToCart';
+import {resetScroll} from "../utils/resetScroll.jsx";
 
 export default function ProductPage() {
+    resetScroll();
     let { name } = useParams();
     const product = data.find(p => p.name === name);
     const { addToCart } = useCart();
-    const [isAddedToCart, setIsAddedToCart] = useState(false);
-
+    const [showPopup, setShowPopup] = useState(false);
 
     const handleAddToCart = () => {
         addToCart(product);
-        setIsAddedToCart(true); 
+        setShowPopup(true);
         setTimeout(() => {
-            setIsAddedToCart(false);
-        }, 10000); 
+            setShowPopup(false);
+        }, 10000);
     };
 
     const closePopup = () => {
-      setIsAddedToCart(false);
+        setShowPopup(false);
     };
 
 
     return (
     <>
-
         <div className="container">
             <Nav />
             <div className="wrapper">
@@ -40,7 +40,7 @@ export default function ProductPage() {
                   <p className="product--page--price">{product.price}</p>
                   <p className="product--page--description">{product.longDescription}</p>
                   <button className="add--cart" onClick={handleAddToCart}>Add to cart</button>
-                  {isAddedToCart && <AddedToCart closePopup={closePopup} isActive={isAddedToCart} />}
+                  {showPopup && <AddedToCart closePopup={closePopup} isActive={showPopup} />}
                 </div>
             </div>
         </div>

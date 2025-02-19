@@ -101,6 +101,10 @@
         min-width: 300px;
         margin: 10px 0;
     }
+
+    .img2, .img1 {
+        display: none;
+    }
 }
 
 @media (max-width: 550px) {
@@ -111,6 +115,7 @@
     .contact-2 {
         font-size: 32px;
     }
+
 }
 
 @media (max-width: 400px) {
@@ -129,9 +134,4 @@
     .input {
         min-width: 250px;
     }
-
-    .img2, .img1 {
-        display: none;
-    }
-
 }
