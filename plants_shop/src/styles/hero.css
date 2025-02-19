@@ -15,6 +15,7 @@ header {
     width: 100%;
     height: 100%;
     background-image: url('../hero-background.jpg');
+    background-position: center;
     background-size: cover;
     filter: brightness(45%);
     z-index: -1;
