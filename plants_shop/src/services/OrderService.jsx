@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 import AuthService from "../services/AuthService";
 
-const API_URL = "http://localhost:8080/api/orders/";
+const API_URL = "https://dot-plants-shop-456351161172.us-central1.run.app:8080/api/orders/";
 
 class OrderService {
     saveOrder(items) {
