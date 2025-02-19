@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './authHeader';
 
-const API_URL = 'https://dot-plants-shop-456351161172.us-central1.run.app:8080/api/test/';
+const API_URL = 'https://dot-plants-shop-456351161172.us-central1.run.app/api/test/';
 
 class UserService {
     getPublicContent() {

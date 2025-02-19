@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://dot-plants-shop-456351161172.us-central1.run.app:8080/api/auth/";
+const API_URL = "https://dot-plants-shop-456351161172.us-central1.run.app/api/auth/";
 
 class AuthService {
     login(username, password) {
