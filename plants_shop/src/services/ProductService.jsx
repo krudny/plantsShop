@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/api/products'; // Replace with your actual backend URL
+const API_URL = 'https://dot-plants-shop-456351161172.us-central1.run.app/api/products'; // Replace with your actual backend URL
 
 const ProductService = {
     getProductById: async (id) => {
