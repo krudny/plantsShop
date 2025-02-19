@@ -7,7 +7,7 @@ export default function Products() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/api/products")
+        axios.get("https://dot-plants-shop-456351161172.us-central1.run.app/api/products")
             .then(response => setProducts(response.data))
             .catch(error => console.error("Błąd podczas pobierania danych:", error));
     }, []);
