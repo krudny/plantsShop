@@ -1,7 +1,7 @@
 header {
     width: 100vw;
     height: 100vh;
-    color: rgba(255, 255, 255, 0.87);
+    color: rgba(255, 255, 255, 0.95);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +27,7 @@ header {
     max-width: 1200px;
     font-family: 'Playfair display', sans-serif;
     align-items: flex-end;
-    margin-top: 40vh;
+    margin-top: 45vh;
     padding: 0 20px;
 }
 
