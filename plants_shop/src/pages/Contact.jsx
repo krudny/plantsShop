@@ -10,8 +10,8 @@ export default function Contact() {
 
       <div className="contact--container">
         <Nav />
-        <img className="img1" src="contact2.png" />
-        <img className="img2" src="contact2.png" />
+        <img className="img1" src="contact2.webp" />
+        <img className="img2" src="contact2.webp" />
 
         <div className="contact--wrapper">
           <div className="contact-text">

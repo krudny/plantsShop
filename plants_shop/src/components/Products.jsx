@@ -1,33 +1,27 @@
-import { useState, useEffect, useMemo } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import "../styles/products.css";
 import Product from "./Product";
 import LoadingOverlay from "./LoadingOverlay.jsx";
+import ProductService from "../services/ProductService.jsx";
+
 
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchPromise = useMemo(() => {
-    return axios.get(
-      "https://dot-plants-shop-456351161172.us-central1.run.app/api/products",
-    );
+  useEffect(() => {
+    ProductService.getAllProducts()
+        .then((response) => {
+          setProducts(response);
+        })
+        .catch((error) => {
+          console.error("Błąd podczas pobierania danych:", error);
+        })
+        .finally(() => setIsLoading(false));
   }, []);
 
-  useEffect(() => {
-    fetchPromise
-      .then((response) => {
-        setProducts(response.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Błąd podczas pobierania danych:", error);
-        setIsLoading(false);
-      });
-  }, [fetchPromise]);
-
   const productComponents = products.map((item) => {
-    return <Product key={item.id} item={item} />;
+    return <Product key={item.product_id} item={item} />;
   });
 
   if (isLoading) {

@@ -2,11 +2,12 @@ import "../styles/cart.css";
 import { useCart } from "./CartContext.jsx";
 
 export default function CartItem(props) {
+  console.log(props);
   const { removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
 
   return (
     <div className="product">
-      <img className="cart--img" src={`${props.item.img}`}></img>
+      <img className="cart--img" src={`${props.item.image}`}></img>
       <div className="info--wrapper">
         <div className="info">
           <p className="cart--name">{props.item.name}</p>
