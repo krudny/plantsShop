@@ -2,7 +2,6 @@ import "../styles/cart.css";
 import { useCart } from "./CartContext.jsx";
 
 export default function CartItem(props) {
-  console.log(props);
   const { removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
 
   return (
@@ -21,19 +20,19 @@ export default function CartItem(props) {
         <div className="buttons--wrapper">
           <span
             className="material-symbols-outlined cart--btn"
-            onClick={() => increaseQuantity(props.item.id)}
+            onClick={() => increaseQuantity(props.item.product_id)}
           >
             add
           </span>
           <span
             className="material-symbols-outlined cart--btn"
-            onClick={() => decreaseQuantity(props.item.id)}
+            onClick={() => decreaseQuantity(props.item.product_id)}
           >
             remove
           </span>
           <span
             className="material-symbols-outlined cart--btn"
-            onClick={() => removeFromCart(props.item.id)}
+            onClick={() => removeFromCart(props.item.product_id)}
           >
             close
           </span>
