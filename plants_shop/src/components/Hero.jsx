@@ -4,10 +4,10 @@ import "../styles/hero.css";
 export default function Hero() {
   return (
     <>
-      <span className="white">
-        <Nav />
-      </span>
       <header>
+        <span className="white">
+          <Nav />
+        </span>
         <div className="background--image"></div>
         <div className="header--wrapper">
           <div className="header--intro">

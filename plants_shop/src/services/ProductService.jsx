@@ -1,12 +1,12 @@
-import axios from "axios";
+import cachedAxios from "../utils/axiosConfig.jsx";
 
-const API_URL =
-  "https://dot-plants-shop-456351161172.us-central1.run.app/api/products"; // Replace with your actual backend URL
+const API_ENDPOINT = "products";
+const config = { cache: { maxAge: 10 * 60 * 1000 } };
 
 const ProductService = {
   getProductById: async (id) => {
     try {
-      const response = await axios.get(`${API_URL}/${id}`);
+      const response = await cachedAxios.get(`${API_ENDPOINT}/${id}`, config);
       return response.data;
     } catch (error) {
       console.error("Error fetching product details:", error);
@@ -16,7 +16,7 @@ const ProductService = {
 
   getAllProducts: async () => {
     try {
-      const response = await axios.get(`${API_URL}`);
+      const response = await cachedAxios.get(`${API_ENDPOINT}`, config);
       return response.data;
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -26,7 +26,7 @@ const ProductService = {
 
   addProduct: async (product) => {
     try {
-      const response = await axios.post(`${API_URL}`, product);
+      const response = await cachedAxios.post(`${API_ENDPOINT}`, product);
       return response.data;
     } catch (error) {
       console.error("Error adding product:", error);
@@ -36,8 +36,8 @@ const ProductService = {
 
   updateProduct: async (product) => {
     try {
-      const response = await axios.put(
-        `${API_URL}/${product.product_id}`,
+      const response = await cachedAxios.put(
+        `${API_ENDPOINT}/${product.product_id}`,
         product,
       );
       return response.data;
@@ -49,7 +49,7 @@ const ProductService = {
 
   deleteProduct: async (id) => {
     try {
-      await axios.delete(`${API_URL}/${id}`);
+      await axios.delete(`${API_ENDPOINT}/${id}`);
     } catch (error) {
       console.error("Error deleting product:", error);
       throw error;

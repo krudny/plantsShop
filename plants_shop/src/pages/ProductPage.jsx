@@ -1,10 +1,10 @@
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import "../styles/product-page.css";
-import {useEffect, useState} from "react";
-import {useCart} from "../components/CartContext";
+import { useEffect, useState } from "react";
+import { useCart } from "../components/CartContext";
 import AddedToCart from "../components/AddedToCart";
-import {resetScroll} from "../utils/resetScroll.jsx";
+import { resetScroll } from "../utils/resetScroll.jsx";
 import LoadingOverlay from "../components/LoadingOverlay.jsx";
 import ProductService from "../services/ProductService.jsx";
 
@@ -22,11 +22,13 @@ export default function ProductPage() {
 
   useEffect(() => {
     loadProduct(id)
-        .then((data) => {
-          setProduct(data)
-        })
-        .catch((error) => console.error("Błąd podczas pobierania produktu:", error))
-        .finally(() => setLoading(false));
+      .then((data) => {
+        setProduct(data);
+      })
+      .catch((error) =>
+        console.error("Błąd podczas pobierania produktu:", error),
+      )
+      .finally(() => setLoading(false));
   }, [id]);
 
   const handleAddToCart = () => {
@@ -42,7 +44,7 @@ export default function ProductPage() {
   };
 
   if (loading) {
-    return <LoadingOverlay externalLoading={loading} />
+    return <LoadingOverlay externalLoading={loading} />;
   }
 
   return (
@@ -56,9 +58,7 @@ export default function ProductPage() {
           <div className="product--page--info ">
             <p className="product--page--name">{product.name}</p>
             <p className="product--page--price">{product.price}</p>
-            <p className="product--page--description">
-              {product.description}
-            </p>
+            <p className="product--page--description">{product.description}</p>
             <button className="add--cart" onClick={handleAddToCart}>
               Add to cart
             </button>

@@ -1,20 +1,19 @@
-import axios from "axios";
 import authHeader from "./authHeader";
+import cachedAxios from "../utils/axiosConfig.jsx";
 
-const API_URL =
-  "https://dot-plants-shop-456351161172.us-central1.run.app/api/test/";
+const API_ENDPOINT = "test";
 
 class UserService {
   getPublicContent() {
-    return axios.get(API_URL + "all");
+    return cachedAxios.get(`${API_ENDPOINT}/all`);
   }
 
   getUserBoard() {
-    return axios.get(API_URL + "user", { headers: authHeader() });
+    return cachedAxios.get(`${API_ENDPOINT}/user`, { headers: authHeader() });
   }
 
   getAdminBoard() {
-    return axios.get(API_URL + "admin", { headers: authHeader() });
+    return cachedAxios.get(`${API_ENDPOINT}/admin`, { headers: authHeader() });
   }
 }
 

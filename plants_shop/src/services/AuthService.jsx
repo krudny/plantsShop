@@ -1,12 +1,11 @@
-import axios from "axios";
+import cachedAxios from "../utils/axiosConfig.jsx";
 
-const API_URL =
-  "https://dot-plants-shop-456351161172.us-central1.run.app/api/auth/";
+const API_ENDPOINT = "auth";
 
 class AuthService {
   login(username, password) {
-    return axios
-      .post(API_URL + "signin", {
+    return cachedAxios
+      .post(`${API_ENDPOINT}/signin`, {
         username,
         password,
       })
@@ -23,7 +22,7 @@ class AuthService {
   }
 
   register(username, email, password) {
-    return axios.post(API_URL + "signup", {
+    return cachedAxios.post(`${API_ENDPOINT}/signun`, {
       username,
       email,
       password,

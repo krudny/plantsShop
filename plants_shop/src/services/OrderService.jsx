@@ -1,10 +1,8 @@
-import axios from "axios";
 import { Navigate } from "react-router-dom";
-
 import AuthService from "../services/AuthService";
+import cachedAxios from "../utils/axiosConfig.jsx";
 
-const API_URL =
-  "https://dot-plants-shop-456351161172.us-central1.run.app/api/orders/";
+const API_ENDPOINT = "orders";
 
 class OrderService {
   saveOrder(items) {
@@ -18,7 +16,7 @@ class OrderService {
       productID: id,
       quantity,
     }));
-    return axios.post(API_URL + "create", {
+    return cachedAxios.post(`${API_ENDPOINT}/create`, {
       userID,
       orderItemRequests,
     });
@@ -26,8 +24,8 @@ class OrderService {
 
   getCurrentUsersOrders() {
     const currentUser = AuthService.getCurrentUser();
-    return axios
-      .get(API_URL + "user/" + currentUser.id)
+    return cachedAxios
+      .get(`${API_ENDPOINT}/user/${currentUser.id}`)
       .then((response) => {
         return response.data;
       })
