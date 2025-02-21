@@ -11,15 +11,8 @@ import BoardAdmin from "../src/pages/BoardAdmin";
 import AdminProducts from "./components/AdminProducts";
 import UpdateProductPage from "./pages/UpdateProduct";
 import AddProductPage from "./pages/AddProduct";
-import {useEffect} from "react";
-import UserService from "./services/UserService.jsx";
 
 export default function App() {
-  // tests if server is up
-  useEffect(() => {
-    UserService.getPublicContent();
-  }, [])
-
   return (
     <>
       <Routes>

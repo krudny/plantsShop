@@ -22,7 +22,7 @@ class AuthService {
   }
 
   register(username, email, password) {
-    return cachedAxios.post(`${API_ENDPOINT}/signun`, {
+    return cachedAxios.post(`${API_ENDPOINT}/signup`, {
       username,
       email,
       password,
