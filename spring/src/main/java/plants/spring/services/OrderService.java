@@ -35,13 +35,12 @@ public class OrderService {
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         Order order = new Order(user);
-
         for(OrderItemRequest orderItemRequest: orderRequest.orderItemRequests()){
             Product product = productRepository.findById(orderItemRequest.productID())
                     .orElseThrow(() -> new RuntimeException("Product not found"));
-
             order.addItem(product, orderItemRequest.quantity(), product.getPrice());
         }
+
 
         return orderRepository.save(order);
     }
@@ -51,8 +50,11 @@ public class OrderService {
         return userOrders.stream()
                 .map(order -> {
                     List<OrderItem> orderItems = orderItemRepository.findByOrder_OrderId(order.getOrderId());
-                    List<OrderItemResponse> orderItemResponses = orderItems.stream()
-                            .map(orderItem -> new OrderItemResponse(orderItem.getProduct().getName(), orderItem.getPrice(), orderItem.getQuantity()))
+                    List<OrderItemResponse> orderItemResponses = orderItems.stream().map(orderItem -> {
+                        Product product = productRepository.findById(orderItem.getProduct_id())
+                                .orElseThrow(() -> new RuntimeException("Product not found"));
+                        return new OrderItemResponse(product.getName(), orderItem.getPrice(), orderItem.getQuantity());
+                    })
                             .collect(Collectors.toList());
                     return new OrderResponse(order.getOrderId(), order.getOrderDate(), orderItemResponses);
                 }).collect(Collectors.toList());

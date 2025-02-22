@@ -11,6 +11,7 @@ import plants.spring.models.Order;
 import plants.spring.repositories.OrderRepository;
 import plants.spring.services.OrderService;
 
+import javax.sound.midi.SysexMessage;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -24,8 +25,8 @@ public class OrderController {
     @PostMapping("/create")
     public ResponseEntity<?> createOrder(@RequestBody OrderRequest orderRequest){
         try {
-            Order createdOrder = orderService.createOrder(orderRequest);
-            return new ResponseEntity<>(createdOrder, HttpStatus.CREATED);
+            orderService.createOrder(orderRequest);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }

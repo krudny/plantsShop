@@ -71,7 +71,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const reset = () => {
-    setCartItems([]);
+    setTimeout(() => setCartItems([]), 300);
   };
 
   return (

@@ -1,6 +1,7 @@
 package plants.spring.controllers;
 
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,14 +32,10 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
+@AllArgsConstructor
 public class AuthController {
-    @Autowired
     AuthenticationManager authenticationManager;
-
-    @Autowired
     JwtUtils jwtUtils;
-
-    @Autowired
     private AuthService authService;
 
     @PostMapping("/signin")

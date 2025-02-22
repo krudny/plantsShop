@@ -7,18 +7,21 @@ const API_ENDPOINT = "orders";
 class OrderService {
   saveOrder(items) {
     const currentUser = AuthService.getCurrentUser();
+
     if (!currentUser) {
       return <Navigate to="/" />;
     }
 
     const userID = currentUser.id;
-    const orderItemRequests = items.map(({ id, quantity }) => ({
-      productID: id,
+    const orderItemRequests = items.map(({ product_id, quantity }) => ({
+      productID: product_id,
       quantity,
     }));
+
+
     return cachedAxios.post(`${API_ENDPOINT}/create`, {
-      userID,
-      orderItemRequests,
+      "userID": userID,
+      "orderItemRequests": orderItemRequests,
     });
   }
 
