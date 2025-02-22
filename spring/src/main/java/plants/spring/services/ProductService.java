@@ -2,6 +2,8 @@ package plants.spring.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import plants.spring.models.Product;
 import plants.spring.repositories.ProductRepository;
@@ -15,8 +17,8 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
 
-    public Iterable<Product> getAllProducts() {
-        return productRepository.findAll();
+    public Page<Product> getAllProducts(Pageable pageable) {
+        return productRepository.findAll(pageable);
     }
 
     public Product addProduct(Product product) {

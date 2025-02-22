@@ -1,6 +1,9 @@
 package plants.spring.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import plants.spring.models.Product;
 import plants.spring.repositories.ProductRepository;
@@ -16,8 +19,8 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public Iterable<Product> getAllProducts() {
-        return productService.getAllProducts();
+    public Page<Product> getAllProducts(@PageableDefault(page = 0, size = 10) Pageable pageable) {
+        return productService.getAllProducts(pageable);
     }
 
     @GetMapping("/{id}")
