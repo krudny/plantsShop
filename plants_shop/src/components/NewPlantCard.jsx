@@ -2,8 +2,9 @@ import "../styles/new-plants.css";
 import { Link } from "react-router-dom";
 
 export default function NewPlantCard(props) {
+  console.log(props);
   return (
-    <Link to={`/ProductPage/${props.item.name}`}>
+    <Link to={`/ProductPage/${props.item.id}`}>
       <div className="card--wrapper">
         <div className="plant--img">
           <img src={`${props.item.img}`} />

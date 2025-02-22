@@ -8,7 +8,7 @@ export default function Products() {
   const [products, setProducts] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const itemsPerPage = window.innerWidth > 1200 ? 16 : window.innerWidth > 900 ? 12 :  window.innerWidth > 600 ? 6 : 4;
 
 
@@ -37,12 +37,10 @@ export default function Products() {
     return <Product key={item.product_id} item={item} />;
   });
 
-  if (isLoading) {
-    return <LoadingOverlay externalLoading={isLoading} />;
-  }
 
   return (
     <>
+      {isLoading && <LoadingOverlay externalLoading={isLoading} />}
       <div className="products--wrapper">
         <div className="products--grid">
           {productComponents}

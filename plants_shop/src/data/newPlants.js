@@ -1,20 +1,20 @@
 export default [
   {
-    id: 1,
+    id: 6,
     img: "new-plant-1.webp",
     name: "Helianthus",
     description: "Moist but well-drained",
-    price: "129.99 zł",
+    price: "99.99 zł",
   },
   {
-    id: 2,
+    id: 19,
     img: "new-plant-2.webp",
     name: "Freesia",
     description: "For those, who love adventures",
     price: "28.99 zł",
   },
   {
-    id: 3,
+    id: 4,
     img: "new-plant-3.webp",
     name: "Orchis",
     description: "Exotic and mesmerizing in appearance",

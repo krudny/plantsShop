@@ -1,7 +1,7 @@
 import "../styles/overlay.css";
 import { useEffect, useState } from "react";
 
-const LoadingOverlay = ({ externalLoading }) => {
+const LoadingOverlay = ({ externalLoading, externalText }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,6 +14,7 @@ const LoadingOverlay = ({ externalLoading }) => {
       return () => window.removeEventListener("load", handleLoad);
     }
   }, []);
+
 
   if (!loading && !externalLoading) return null;
 
@@ -28,7 +29,7 @@ const LoadingOverlay = ({ externalLoading }) => {
         <div></div>
       </div>
       <div>
-        <p>Loading...</p>
+        <p>{externalText || "Loading..."}</p>
       </div>
     </div>
   );
