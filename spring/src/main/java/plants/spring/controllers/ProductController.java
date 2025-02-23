@@ -6,10 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import plants.spring.models.Product;
-import plants.spring.repositories.ProductRepository;
 import plants.spring.services.ProductService;
-
-import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -35,7 +32,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public void updateProduct(@PathVariable Long id, @RequestBody Product product) {
-        product.setProduct_id(id);
+        product.setProductID(id);
         productService.updateProduct(product);
     }
 

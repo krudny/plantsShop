@@ -36,7 +36,7 @@ public class Order {
     }
 
     public void addItem(Product product, int quantity, double price) {
-        OrderItem item = new OrderItem(this, product.getProduct_id(), quantity, price);
+        OrderItem item = new OrderItem(this, product.getProductID(), quantity, price);
         items.add(item);
     }
 }

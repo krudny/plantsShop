@@ -1,7 +1,6 @@
 package plants.spring.services;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,7 @@ public class ProductService {
     }
 
     public void updateProduct(Product product) {
-        if (productRepository.existsById(product.getProduct_id())) {
+        if (productRepository.existsById(product.getProductID())) {
             productRepository.save(product);
         }
     }
