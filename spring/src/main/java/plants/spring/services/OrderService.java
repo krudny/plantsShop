@@ -31,14 +31,14 @@ public class OrderService {
 
     @Transactional
     public Order createOrder(OrderRequest orderRequest){
-        User user = userRepository.findById(orderRequest.userID())
+        User user = userRepository.findById(orderRequest.getUserID())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         Order order = new Order(user);
-        for(OrderItemRequest orderItemRequest: orderRequest.orderItemRequests()){
-            Product product = productRepository.findById(orderItemRequest.productID())
+        for(OrderItemRequest orderItemRequest: orderRequest.getOrderItemRequests()){
+            Product product = productRepository.findById(orderItemRequest.getProductID())
                     .orElseThrow(() -> new RuntimeException("Product not found"));
-            order.addItem(product, orderItemRequest.quantity(), product.getPrice());
+            order.addItem(product, orderItemRequest.getQuantity(), product.getPrice());
         }
 
 

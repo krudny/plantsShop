@@ -1,7 +1,24 @@
 package plants.spring.dtos.response;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
+
 import java.util.Date;
 import java.util.List;
 
-public record OrderResponse(Long orderID, Date orderDate, List<OrderItemResponse> products) {
+@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class OrderResponse {
+    @JsonProperty("orderID")
+    private Long orderID;
+
+    @JsonProperty("orderDate")
+    private Date orderDate;
+
+    @JsonProperty("products")
+    private List<OrderItemResponse> products;
 }

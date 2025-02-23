@@ -1,17 +1,15 @@
 package plants.spring.security.jwt;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.JwtException;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
-import io.jsonwebtoken.io.Decoders;
-import javax.crypto.SecretKey;
+import com.nimbusds.jose.*;
+import com.nimbusds.jose.crypto.*;
+import com.nimbusds.jwt.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import plants.spring.security.serives.UserDetailsImpl;
+import java.text.ParseException;
 import java.util.Date;
 
 @Component
@@ -28,41 +26,46 @@ public class JwtUtils {
     public String generateJwtToken(Authentication authentication) {
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
-        return Jwts.builder()
-                .subject(userPrincipal.getUsername())
-                .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis() + jwtExpirationMs))
-                .signWith(getSecretKey(), SignatureAlgorithm.HS256)
-                .compact();
-    }
+        try {
+            JWSSigner signer = new MACSigner(jwtSecret.getBytes());
 
-    private SecretKey getSecretKey() {
-        return Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtSecret));
+            JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
+                    .subject(userPrincipal.getUsername())
+                    .issueTime(new Date())
+                    .expirationTime(new Date(System.currentTimeMillis() + jwtExpirationMs))
+                    .build();
+
+            SignedJWT signedJWT = new SignedJWT(
+                    new JWSHeader(JWSAlgorithm.HS256),
+                    claimsSet
+            );
+
+            signedJWT.sign(signer);
+
+            return signedJWT.serialize();
+        } catch (JOSEException e) {
+            logger.error("Błąd generowania JWT: {}", e.getMessage());
+            throw new RuntimeException("Nie udało się wygenerować tokena JWT", e);
+        }
     }
 
     public String getUserNameFromJwtToken(String token) {
         try {
-            return Jwts.parser()
-                    .verifyWith(getSecretKey())
-                    .build()
-                    .parseSignedClaims(token)
-                    .getPayload()
-                    .getSubject();
-        } catch (JwtException e) {
-            logger.error("Failed to parse JWT: {}", e.getMessage());
-            throw e;
+            SignedJWT signedJWT = SignedJWT.parse(token);
+            return signedJWT.getJWTClaimsSet().getSubject();
+        } catch (ParseException e) {
+            logger.error("Błąd parsowania JWT: {}", e.getMessage());
+            throw new RuntimeException("Nie udało się pobrać nazwy użytkownika z JWT", e);
         }
     }
 
     public boolean validateJwtToken(String authToken) {
         try {
-            Jwts.parser()
-                    .verifyWith(getSecretKey())
-                    .build()
-                    .parseSignedClaims(authToken);
-            return true;
-        } catch (JwtException e) {
-            logger.error("Invalid JWT token: {}", e.getMessage());
+            SignedJWT signedJWT = SignedJWT.parse(authToken);
+            JWSVerifier verifier = new MACVerifier(jwtSecret.getBytes());
+            return signedJWT.verify(verifier);
+        } catch (JOSEException | ParseException e) {
+            logger.error("Niepoprawny JWT: {}", e.getMessage());
             return false;
         }
     }

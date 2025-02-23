@@ -10,7 +10,9 @@ WORKDIR /app
 COPY . .
 
 # Budowanie aplikacji Spring Native
-RUN ./mvnw -Pnative native:compile -U -Djava.version=21
+RUN ./mvnw -Pnative native:compile -U -Djava.version=21 \
+    -Dnative-image.args="--initialize-at-build-time=io.jsonwebtoken --report-unsupported-elements-at-runtime \
+    -H:ReflectionConfigurationFiles=META-INF/native-image/reflection-config.json"
 
 # Pobierz minimalny obraz Linux do uruchomienia aplikacji
 FROM alpine:latest

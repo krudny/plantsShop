@@ -19,14 +19,14 @@ export default function Login() {
       password: "",
     },
     validationSchema: Yup.object({
-      username: Yup.string()
-        .required("This field is required!")
-        .min(6, "Username must be at least 6 characters.")
-        .max(20, "Username must be at most 20 characters."),
-      password: Yup.string()
-        .required("This field is required!")
-        .min(6, "Password must be at least 6 characters.")
-        .max(40, "Password must be at most 40 characters."),
+      // username: Yup.string()
+      //   .required("This field is required!")
+      //   .min(6, "Username must be at least 6 characters.")
+      //   .max(20, "Username must be at most 20 characters."),
+      // password: Yup.string()
+      //   .required("This field is required!")
+      //   .min(6, "Password must be at least 6 characters.")
+      //   .max(40, "Password must be at most 40 characters."),
     }),
     onSubmit: async (values, { setSubmitting, setFieldError }) => {
       try {
@@ -40,6 +40,7 @@ export default function Login() {
             error.response.data.message) ||
           error.message ||
           error.toString();
+        console.log(resMessage)
 
         setFieldError("username", resMessage);
       } finally {

@@ -9,24 +9,18 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.web.bind.annotation.*;
 import plants.spring.dtos.request.LoginRequest;
 import plants.spring.dtos.request.SignUpRequest;
 import plants.spring.dtos.response.JwtResponse;
 import plants.spring.dtos.response.MessageResponse;
-import plants.spring.models.ERole;
-import plants.spring.models.Role;
 import plants.spring.models.User;
-import plants.spring.repositories.RoleRepository;
-import plants.spring.repositories.UserRepository;
 import plants.spring.security.jwt.JwtUtils;
 import plants.spring.security.serives.UserDetailsImpl;
 import plants.spring.services.AuthService;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -38,11 +32,11 @@ public class AuthController {
     JwtUtils jwtUtils;
     private AuthService authService;
 
-    @PostMapping("/signin")
+    @PostMapping(value = "/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.username(), loginRequest.password()));
+                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
@@ -59,11 +53,11 @@ public class AuthController {
                 roles));
     }
 
-    @PostMapping("/signup")
+    @PostMapping(value = "/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
         try {
             User registeredUser = authService.registerUser(signUpRequest);
-            return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+            return ResponseEntity.ok("User registered successfully!");
         } catch (RuntimeException e) {
             return ResponseEntity
                     .badRequest()
