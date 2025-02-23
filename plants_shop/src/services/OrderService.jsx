@@ -9,12 +9,13 @@ class OrderService {
     const currentUser = AuthService.getCurrentUser();
 
     if (!currentUser) {
+      console.error("User not found!");
       return <Navigate to="/" />;
     }
 
     const userID = currentUser.id;
-    const orderItemRequests = items.map(({ product_id, quantity }) => ({
-      productID: product_id,
+    const orderItemRequests = items.map(({ productID, quantity }) => ({
+      productID: productID,
       quantity,
     }));
 

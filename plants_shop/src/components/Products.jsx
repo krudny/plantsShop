@@ -33,8 +33,9 @@ export default function Products() {
       .finally(() => setIsLoading(false));
   }, [currentPage]);
 
+
   const productComponents = products.map((item) => {
-    return <Product key={item.product_id} item={item} />;
+    return <Product key={item.productID} item={item} />;
   });
 
 
