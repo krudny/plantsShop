@@ -7,11 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import plants.spring.dtos.request.OrderRequest;
 import plants.spring.dtos.response.OrderResponse;
-import plants.spring.models.Order;
-import plants.spring.repositories.OrderRepository;
 import plants.spring.services.OrderService;
 
-import javax.sound.midi.SysexMessage;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)

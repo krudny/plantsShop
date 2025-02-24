@@ -23,7 +23,9 @@ export default function Nav() {
   return (
     <>
       <nav>
-        <div className="nav--logo">.Plants</div>
+        <div className="nav--logo">
+          <p>.Plants</p>
+        </div>
         <div className="nav--links">
           <Link to="/">
             <p className="links">Home</p>

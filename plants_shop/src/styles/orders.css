@@ -1,32 +1,78 @@
-.orders-contiainer {
+.orders--container {
+  width: 1100px;
+  margin: auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  gap: 30px;
-}
-
-.order-info-container {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
-.order-card {
-  width: 300px;
-  padding: 5px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 49px -30px rgba(66, 68, 90, 0.8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.orders--container > p{
+  font-size: 44px;
+  font-weight: 900;
+  margin-top: 100px;
+  margin-bottom: 50px;
 }
 
-.order-card > ul {
-  list-style: none;
-  padding: 0;
+.order--box {
+  width: 800px;
+  border-radius: 10px;
+  border: 2px solid rgb(235, 235, 235);
+  margin: 15px 0;
+}
+
+.order--header {
+  display: flex;
+  border-bottom: 2px solid rgb(235, 235, 235);
+  background: rgb(246, 246, 246);
+}
+
+.order--info {
+  /*background: red;*/
+  width: fit-content;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+.order--info > p {
   margin: 0;
+  font-size: 18px;
+  color: rgb(120, 120, 120);
+  font-weight: 500;
 }
 
-.order-card > h3 {
-  margin: 0.5em;
+.order--info--details {
+  margin-top: 7px;
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
+
+.order--content {
+  display: flex;
+  padding: 20px;
+}
+
+.order--details {
+  margin: auto 20px;
+}
+
+.order--title {
+  font-size: 24px;
+  margin-top: -5px;
+}
+
+.order--description {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.order--description > p {
+  margin: 5px 0 0 0;
+  font-size: 18px;
+}
+
+.order--img > img {
+  width: 150px;
 }

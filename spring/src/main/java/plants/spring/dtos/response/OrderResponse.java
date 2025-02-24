@@ -19,6 +19,6 @@ public class OrderResponse {
     @JsonProperty("orderDate")
     private Date orderDate;
 
-    @JsonProperty("products")
-    private List<OrderItemResponse> products;
+    @JsonProperty("items")
+    private List<OrderItemResponse> items;
 }

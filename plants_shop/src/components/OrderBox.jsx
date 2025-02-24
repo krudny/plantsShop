@@ -1,30 +1,39 @@
-import React from "react";
 import "../styles/orders.css";
+import {calculateTotalPrice, parseDate} from "../utils/cartUtils.jsx";
 
 export default function OrderBox({ order }) {
-  const calculateTotalPrice = () => {
-    return order.products.reduce(
-      (total, product) => total + product.price * product.quantity,
-      0,
+    return (
+        <div className="order--box">
+            <div className="order--header">
+                <div className="order--info">
+                    <p>Order placed</p>
+                    <div className="order--info--details">{parseDate(order.orderDate)}</div>
+                </div>
+                <div className="order--info">
+                    <p>Total price</p>
+                    <div className="order--info--details">{calculateTotalPrice(order)} zł</div>
+                </div>
+                <div className="order--info">
+                    <p>Order ID</p>
+                    <div className="order--info--details">{order.orderID}</div>
+                </div>
+            </div>
+            {order.items.map((item) => (
+                <div key={item.product.productID} className="order--content">
+                    <div className="order--img">
+                        <img src={item.product.image} alt={item.product.name} />
+                    </div>
+                    <div className="order--details">
+                        <div className="order--title">
+                            {item.product.name} - {item.product.description}
+                        </div>
+                        <div className="order--description">
+                            <p>Quantity: {item.quantity}</p>
+                            <p>Price: {item.product.price} zł</p>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
     );
-  };
-
-  return (
-    <div key={order.orderID} className="order-card">
-      <h3>Order ID: {order.orderID}</h3>
-      <p>Order Date: {new Date(order.orderDate).toLocaleString()}</p>
-      <p> Total price: {calculateTotalPrice()} zł </p>
-      <h3>Products:</h3>
-      <ul>
-        {order.products.map((product) => (
-          <li key={product.name}>
-            <hr />
-            <p>Product ID: {product.name}</p>
-            <p>Price: {product.price} zł</p>
-            <p>Quantity: {product.quantity}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
 }

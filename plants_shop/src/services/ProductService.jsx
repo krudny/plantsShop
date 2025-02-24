@@ -49,7 +49,7 @@ const ProductService = {
 
   deleteProduct: async (id) => {
     try {
-      await axios.delete(`${API_ENDPOINT}/${id}`);
+      await cachedAxios.delete(`${API_ENDPOINT}/${id}`);
     } catch (error) {
       console.error("Error deleting product:", error);
       throw error;

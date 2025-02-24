@@ -2,6 +2,7 @@ package plants.spring.dtos.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import plants.spring.models.Product;
 
 @Data
 @Getter
@@ -9,12 +10,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderItemResponse {
-    @JsonProperty("name")
-    private String name;
-
-    @JsonProperty("price")
-    private Double price;
-
     @JsonProperty("quantity")
     private int quantity;
+
+    @JsonProperty("products")
+    private Product product;
 }

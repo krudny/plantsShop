@@ -53,7 +53,8 @@ public class OrderService {
                     List<OrderItemResponse> orderItemResponses = orderItems.stream().map(orderItem -> {
                         Product product = productRepository.findById(orderItem.getProduct_id())
                                 .orElseThrow(() -> new RuntimeException("Product not found"));
-                        return new OrderItemResponse(product.getName(), orderItem.getPrice(), orderItem.getQuantity());
+
+                        return new OrderItemResponse(orderItem.getQuantity(), product);
                     })
                             .collect(Collectors.toList());
                     return new OrderResponse(order.getOrderId(), order.getOrderDate(), orderItemResponses);
