@@ -13,6 +13,6 @@ public class OrderItemResponse {
     @JsonProperty("quantity")
     private int quantity;
 
-    @JsonProperty("products")
+    @JsonProperty("product")
     private Product product;
 }

@@ -28,7 +28,6 @@
 }
 
 .order--info {
-  /*background: red;*/
   width: fit-content;
   margin-right: 20px;
   padding: 20px;
@@ -51,6 +50,7 @@
 .order--content {
   display: flex;
   padding: 20px;
+  border-bottom: 2px solid rgb(235, 235, 235);
 }
 
 .order--details {
@@ -73,6 +73,72 @@
   font-size: 18px;
 }
 
+.order--img {
+  margin: auto 0;
+}
+
 .order--img > img {
   width: 150px;
+}
+
+@media (max-width: 1100px) {
+  .orders--container {
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 850px) {
+  .orders--container > p {
+    font-size: 38px;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+
+  .order--box {
+    width: 90vw;
+    margin: 15px 20px;
+  }
+}
+
+@media (max-width: 570px) {
+  .order--info {
+    margin-right: 10px;
+    padding: 15px;
+  }
+
+  .order--content {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .orders--container > p {
+    font-size: 34px;
+  }
+
+  .order--header {
+    flex-direction: column;
+  }
+
+  .order--content {
+    flex-direction: column;
+  }
+
+  .order--details {
+    margin: 15px 0;
+  }
+
+  .order--description {
+    margin-top: 10px;
+  }
+
+  .order--title {
+    font-size: 20px;
+  }
+
+  .order--description > p {
+    font-size: 16px;
+  }
+
 }

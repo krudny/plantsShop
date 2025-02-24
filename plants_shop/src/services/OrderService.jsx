@@ -26,10 +26,10 @@ class OrderService {
     });
   }
 
-  getCurrentUsersOrders(currentPage, itemsPerPage) {
+  getCurrentUsersOrders() {
     const currentUser = AuthService.getCurrentUser();
     return cachedAxios
-      .get(`${API_ENDPOINT}/user/${currentUser.id}?page=${currentPage}&size=${itemsPerPage}`)
+      .get(`${API_ENDPOINT}/user/${currentUser.id}`)
       .then((response) => {
         return response.data;
       })

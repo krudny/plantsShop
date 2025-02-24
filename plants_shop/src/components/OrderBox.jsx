@@ -6,7 +6,7 @@ export default function OrderBox({ order }) {
         <div className="order--box">
             <div className="order--header">
                 <div className="order--info">
-                    <p>Order placed</p>
+                    <p>Order date</p>
                     <div className="order--info--details">{parseDate(order.orderDate)}</div>
                 </div>
                 <div className="order--info">
