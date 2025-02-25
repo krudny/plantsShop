@@ -10,19 +10,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import plants.spring.dtos.request.OrderRequest;
 import plants.spring.dtos.response.OrderResponse;
-import plants.spring.models.Order;
-import plants.spring.models.Product;
 import plants.spring.services.OrderService;
-import plants.spring.services.ProductService;
 
-import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/orders")
+@AllArgsConstructor
 public class OrderController {
-    @Autowired
-    private OrderService orderService;
+    private final OrderService orderService;
 
     @PostMapping("/create")
     public ResponseEntity<?> createOrder(@RequestBody OrderRequest orderRequest){
