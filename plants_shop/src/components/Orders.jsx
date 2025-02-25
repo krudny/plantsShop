@@ -26,7 +26,7 @@ export default function Orders({ user }) {
       .getCurrentUsersOrders(currentPage, ordersPerPage)
       .then((data) => {
         setOrders(data.content);
-        setTotalPages(data.page.totalPages);
+        setTotalPages(data.content.page.totalPages);
       })
       .catch((error) => console.error("Error fetching user orders:", error))
       .finally(() => setIsLoading(false));
