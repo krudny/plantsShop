@@ -6,6 +6,7 @@ import Nav from "../components/Nav";
 import "../styles/contact.css";
 import "../styles/form.css";
 import LoadingOverlay from "../components/LoadingOverlay.jsx";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const baseInputClass = "login--input";
@@ -31,7 +32,7 @@ const Register = () => {
         .min(6, "The password must be at least 6 characters")
         .max(40, "The password must be at most 40 characters"),
     }),
-    onSubmit: async (values, { setSubmitting, setFieldError }) => {
+    onSubmit: async (values, { setSubmitting }) => {
       try {
         const response = await AuthService.register(
           values.username,
@@ -45,20 +46,16 @@ const Register = () => {
         });
         formik.setSubmitting(false);
         navigate("/login");
+        toast.success("You have successfully created account! Please log in");
         formik.setValues({
           username: "",
           email: "",
           password: "",
         });
       } catch (error) {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-
-        setFieldError("username", resMessage);
+        toast.error("Something went wrong!");
+        console.error(error);
+      } finally {
         setSubmitting(false);
       }
     },
@@ -73,14 +70,13 @@ const Register = () => {
         </span>
         <div className="background--image"></div>
         <div className="login--wrapper">
-          <div className="login--tabs">
-            <Link to="/login">
-              <p className="sign--btn login--notactive">Sign in</p>
-            </Link>
-            <p className="sign--btn login--active">Sign up</p>
-          </div>
-
           <form className="login--form" onSubmit={formik.handleSubmit}>
+            <div className="login--tabs">
+              <Link to="/login">
+                <p className="sign--btn login--notactive">Sign in</p>
+              </Link>
+              <p className="sign--btn login--active">Sign up</p>
+            </div>
             <p className="login--text">Username</p>
             <input
               type="text"
@@ -115,6 +111,19 @@ const Register = () => {
               onBlur={formik.handleBlur}
               value={formik.values.password}
             />
+
+            {formik.touched.username &&
+            formik.touched.email &&
+            formik.touched.password &&
+            (formik.errors.username ||
+              formik.errors.password ||
+              formik.errors.email) ? (
+              <div className="error-box">
+                <div className="error-message">{formik.errors.username}</div>
+                <div className="error-message">{formik.errors.email}</div>
+                <div className="error-message">{formik.errors.password}</div>
+              </div>
+            ) : null}
 
             <button
               className="login--btn"

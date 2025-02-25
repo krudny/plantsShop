@@ -9,20 +9,22 @@
 
 .login--wrapper {
   width: 500px;
-  height: 500px;
+  min-height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.9);
   margin: auto;
+  padding: 60px 0px;
 }
 
 .login--tabs {
   width: 350px;
-  height: 25px;
+  height: 20px;
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .sign--btn {
@@ -40,7 +42,6 @@
 
 .login--form {
   width: 350px;
-  min-height: 350px;
   display: flex;
   flex-direction: column;
 }
@@ -86,6 +87,11 @@
   font-weight: 300;
 }
 
+.error-message {
+  color: #cc0101;
+  margin-top: 10px;
+}
+
 .login--btn {
   width: 350px;
   height: 50px;
@@ -101,7 +107,7 @@
   box-shadow: 0 0 49px -30px rgba(66, 68, 90, 0.8);
   transition: all 0.2s ease;
   user-select: none;
-  margin-top: auto;
+  margin-top: 40px;
 }
 
 .login--btn:hover {

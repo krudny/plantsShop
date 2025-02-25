@@ -3,6 +3,8 @@ package plants.spring.services;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import plants.spring.dtos.request.OrderItemRequest;
 import plants.spring.dtos.request.OrderRequest;
@@ -17,7 +19,6 @@ import plants.spring.repositories.OrderRepository;
 import plants.spring.repositories.ProductRepository;
 import plants.spring.repositories.UserRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,8 +30,7 @@ public class OrderService {
     private ProductRepository productRepository;
     private UserRepository userRepository;
 
-    @Transactional
-    public Order createOrder(OrderRequest orderRequest){
+    public void createOrder(OrderRequest orderRequest){
         User user = userRepository.findById(orderRequest.getUserID())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -40,24 +40,19 @@ public class OrderService {
                     .orElseThrow(() -> new RuntimeException("Product not found"));
             order.addItem(product, orderItemRequest.getQuantity(), product.getPrice());
         }
-
-
-        return orderRepository.save(order);
+        orderRepository.save(order);
     }
 
-    public List<OrderResponse> getUserOrders(Long userID){
-        List<Order> userOrders = orderRepository.findByUserId(userID);
-        return userOrders.stream()
-                .map(order -> {
-                    List<OrderItem> orderItems = orderItemRepository.findByOrder_OrderId(order.getOrderId());
-                    List<OrderItemResponse> orderItemResponses = orderItems.stream().map(orderItem -> {
-                        Product product = productRepository.findById(orderItem.getProduct_id())
-                                .orElseThrow(() -> new RuntimeException("Product not found"));
-
-                        return new OrderItemResponse(orderItem.getQuantity(), product);
-                    })
-                            .collect(Collectors.toList());
-                    return new OrderResponse(order.getOrderId(), order.getOrderDate(), orderItemResponses);
-                }).collect(Collectors.toList());
+    public Page<OrderResponse> getUserOrders(Long userID, Pageable pageable){
+        Page<Order> userOrders = orderRepository.findByUserId(userID, pageable);
+        return userOrders.map(order -> {
+            List<OrderItem> orderItems = orderItemRepository.findByOrder_OrderId(order.getOrderId());
+            List<OrderItemResponse> orderItemResponses = orderItems.stream().map(orderItem -> {
+                Product product = productRepository.findById(orderItem.getProduct_id())
+                        .orElseThrow(() -> new RuntimeException("Product not found"));
+                return new OrderItemResponse(orderItem.getQuantity(), product);
+            }).collect(Collectors.toList());
+            return new OrderResponse(order.getOrderId(), order.getOrderDate(), orderItemResponses);
+        });
     }
 }

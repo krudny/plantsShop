@@ -15,7 +15,6 @@ const LoadingOverlay = ({ externalLoading, externalText }) => {
     }
   }, []);
 
-
   if (!loading && !externalLoading) return null;
 
   return (

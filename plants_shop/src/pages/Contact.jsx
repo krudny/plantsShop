@@ -2,6 +2,7 @@ import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import "../styles/contact.css";
 import LoadingOverlay from "../components/LoadingOverlay.jsx";
+import toast from "react-hot-toast";
 
 export default function Contact() {
   return (
@@ -41,7 +42,11 @@ export default function Contact() {
                 placeholder="What are we going to talk about?"
                 autoComplete="off"
               />
-              <button className="add--cart" type="submit">
+              <button
+                className="add--cart"
+                type="submit"
+                onClick={() => toast.error("Contact form is not working :c")}
+              >
                 Send
               </button>
             </form>

@@ -16,7 +16,10 @@ const ProductService = {
 
   getAllProducts: async (currentPage, itemsPerPage) => {
     try {
-      const response = await cachedAxios.get(`${API_ENDPOINT}?page=${currentPage}&size=${itemsPerPage}`, config);
+      const response = await cachedAxios.get(
+        `${API_ENDPOINT}?page=${currentPage}&size=${itemsPerPage}`,
+        config,
+      );
       return response.data;
     } catch (error) {
       console.error("Error fetching products:", error);

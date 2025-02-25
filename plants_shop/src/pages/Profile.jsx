@@ -5,6 +5,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import "../styles/profile.css";
 import Orders from "../components/Orders.jsx";
+import toast from "react-hot-toast";
 
 const Profile = () => {
   const [currentUser, setCurrentUser] = useState({ username: "" });
@@ -15,10 +16,10 @@ const Profile = () => {
 
     if (!currentUser) {
       navigate("/");
+      toast.error("You are not logged in!");
     }
     setCurrentUser(currentUser);
   }, []);
-
 
   return (
     <>

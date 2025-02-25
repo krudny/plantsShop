@@ -19,17 +19,18 @@ class OrderService {
       quantity,
     }));
 
-
     return cachedAxios.post(`${API_ENDPOINT}/create`, {
-      "userID": userID,
-      "orderItemRequests": orderItemRequests,
+      userID: userID,
+      orderItemRequests: orderItemRequests,
     });
   }
 
-  getCurrentUsersOrders() {
+  getCurrentUsersOrders(currentPage, ordersPerPage) {
     const currentUser = AuthService.getCurrentUser();
     return cachedAxios
-      .get(`${API_ENDPOINT}/user/${currentUser.id}`)
+      .get(
+        `${API_ENDPOINT}/user/${currentUser.id}?page=${currentPage}&ordersPerPage=${ordersPerPage}`,
+      )
       .then((response) => {
         return response.data;
       })

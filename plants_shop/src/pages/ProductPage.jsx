@@ -1,12 +1,14 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import "../styles/product-page.css";
 import { useEffect, useState } from "react";
-import { useCart } from "../components/CartContext";
 import AddedToCart from "../components/AddedToCart";
 import { resetScroll } from "../utils/resetScroll.jsx";
 import LoadingOverlay from "../components/LoadingOverlay.jsx";
 import ProductService from "../services/ProductService.jsx";
+import authService from "../services/AuthService.jsx";
+import toast from "react-hot-toast";
+import {useCart} from "../components/CartContext.jsx";
 
 async function loadProduct(id) {
   return await ProductService.getProductById(id);
@@ -16,6 +18,7 @@ export default function ProductPage() {
   resetScroll();
   let { id } = useParams();
   const { addToCart } = useCart();
+  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,6 +35,12 @@ export default function ProductPage() {
   }, [id]);
 
   const handleAddToCart = () => {
+    if (!authService.getCurrentUser()) {
+      navigate("/login");
+      toast.error("You have to login first!");
+      return;
+    }
+
     addToCart(product);
     setShowPopup(true);
     setTimeout(() => {

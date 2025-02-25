@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import AuthService from "../services/AuthService";
 import LoadingOverlay from "../components/LoadingOverlay.jsx";
+import toast from "react-hot-toast";
 
 export default function Login() {
   const baseInputClass = "login--input";
@@ -19,30 +20,23 @@ export default function Login() {
       password: "",
     },
     validationSchema: Yup.object({
-      // username: Yup.string()
-      //   .required("This field is required!")
-      //   .min(6, "Username must be at least 6 characters.")
-      //   .max(20, "Username must be at most 20 characters."),
-      // password: Yup.string()
-      //   .required("This field is required!")
-      //   .min(6, "Password must be at least 6 characters.")
-      //   .max(40, "Password must be at most 40 characters."),
+      username: Yup.string()
+        .required("This field is required!")
+        .min(6, "Username must be at least 6 characters.")
+        .max(20, "Username must be at most 20 characters."),
+      password: Yup.string()
+        .required("This field is required!")
+        .min(6, "Password must be at least 6 characters.")
+        .max(40, "Password must be at most 40 characters."),
     }),
-    onSubmit: async (values, { setSubmitting, setFieldError }) => {
+    onSubmit: async (values, { setSubmitting }) => {
       try {
         await AuthService.login(values.username, values.password);
+        toast.success("You have successfully logged in!");
         navigate("/profile");
-        window.location.reload();
       } catch (error) {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-        console.log(resMessage)
-
-        setFieldError("username", resMessage);
+        toast.error("Something went wrong!");
+        console.error(error);
       } finally {
         setSubmitting(false);
       }
@@ -59,14 +53,13 @@ export default function Login() {
         <div className="background--image"></div>
         <div className="login--wrapper">
           <>
-            <div className="login--tabs">
-              <p className="sign--btn login--active">Sign in</p>
-              <Link to="/register">
-                <p className="sign--btn login--notactive">Sign up</p>
-              </Link>
-            </div>
-
             <form className="login--form" onSubmit={formik.handleSubmit}>
+              <div className="login--tabs">
+                <p className="sign--btn login--active">Sign in</p>
+                <Link to="/register">
+                  <p className="sign--btn login--notactive">Sign up</p>
+                </Link>
+              </div>
               <p className="login--text">Username</p>
               <input
                 type="text"
@@ -91,6 +84,14 @@ export default function Login() {
                 onBlur={formik.handleBlur}
                 value={formik.values.password}
               />
+              {formik.touched.username &&
+              formik.touched.password &&
+              (formik.errors.username || formik.errors.password) ? (
+                <>
+                  <div className="error-message">{formik.errors.username}</div>
+                  <div className="error-message">{formik.errors.password}</div>
+                </>
+              ) : null}
               <button
                 className="login--btn"
                 type="submit"
