@@ -5,7 +5,6 @@ import OrderService from "../services/OrderService";
 import LoadingOverlay from "./LoadingOverlay.jsx";
 import Pagination from "./Pagination.jsx";
 import { resetScroll } from "../utils/resetScroll.jsx";
-import userService from "../services/UserService.jsx";
 import { useNavigate } from "react-router-dom";
 import authService from "../services/AuthService.jsx";
 import toast from "react-hot-toast";
@@ -25,8 +24,9 @@ export default function Orders({ user }) {
     orderService
       .getCurrentUsersOrders(currentPage, ordersPerPage)
       .then((data) => {
+          console.log(data)
         setOrders(data.content);
-        setTotalPages(data.content.page.totalPages);
+        setTotalPages(data.totalPages);
       })
       .catch((error) => console.error("Error fetching user orders:", error))
       .finally(() => setIsLoading(false));

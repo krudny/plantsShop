@@ -69,7 +69,7 @@ const Register = () => {
           <Nav />
         </span>
         <div className="background--image"></div>
-        <div className="login--wrapper">
+        <div className="register--wrapper">
           <form className="login--form" onSubmit={formik.handleSubmit}>
             <div className="login--tabs">
               <Link to="/login">
