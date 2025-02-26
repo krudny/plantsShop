@@ -15,7 +15,7 @@ export default function NewPlant() {
         </div>
         <div className="section--text">
           <p>
-            Bring nature insider and shop our big selections of fresh indoor
+            Bring nature inside and shop our big selections of fresh indoor
             plants including Instagram-worthy houseplants, pet-friendly plants,
             orchids and one-of-a-kind rare plants.
           </p>

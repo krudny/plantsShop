@@ -66,7 +66,7 @@ export default function ProductPage() {
           </div>
           <div className="product--page--info ">
             <p className="product--page--name">{product.name}</p>
-            <p className="product--page--price">{product.price}</p>
+            <p className="product--page--price">{product.price} zł</p>
             <p className="product--page--description">{product.description}</p>
             <button className="add--cart" onClick={handleAddToCart}>
               Add to cart

@@ -24,7 +24,9 @@ export default function Nav() {
     <>
       <nav>
         <div className="nav--logo">
-          <p>.Plants</p>
+          <Link to="/">
+            <p>.Plants</p>
+          </Link>
         </div>
         <div className="nav--links">
           <Link to="/">

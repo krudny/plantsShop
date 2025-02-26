@@ -27,7 +27,7 @@ export default function Products() {
     ProductService.getAllProducts(currentPage, itemsPerPage)
       .then((response) => {
         setProducts(response.content);
-        setTotalPages(response.page.totalPages);
+        setTotalPages(response.totalPages);
       })
       .catch((error) => {
         console.error("Błąd podczas pobierania danych:", error);
