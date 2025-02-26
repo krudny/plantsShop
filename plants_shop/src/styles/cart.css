@@ -18,8 +18,8 @@
 .cart--welcome {
   font-size: 44px;
   font-weight: 900;
-  margin-top: 100px;
-  margin-bottom: 50px;
+  margin: 100px auto 50px auto;
+  text-align: center;
 }
 
 .info--wrapper {
@@ -163,8 +163,7 @@
   .cart--welcome {
     font-size: 38px;
     text-align: center;
-    margin-top: 80px;
-    margin-bottom: 40px;
+    margin: 80px auto 40px auto;
   }
 
   .info {
@@ -247,8 +246,7 @@
   .cart--welcome {
     font-size: 30px;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px auto;
   }
 
   .cart--total {

@@ -119,6 +119,7 @@
 @media (max-width: 500px) {
   .orders--container > p {
     font-size: 34px;
+    margin: 30px 20px 20px 20px;
   }
 
   .order--header {
@@ -143,5 +144,9 @@
 
   .order--description > p {
     font-size: 16px;
+  }
+
+  .logout--btn {
+    margin-bottom: 20px;
   }
 }
