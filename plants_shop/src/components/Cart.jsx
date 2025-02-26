@@ -30,7 +30,7 @@ export default function Cart() {
         <div className="items--wrapper">
           {cartItems.length > 0 ? (
             <div key={cartItems.length}>
-              <p>Here are your precisely chosen plants!</p>
+              <p className="cart--welcome">Here are your precisely chosen plants!</p>
               <div className="product--wrapper">{items}</div>
               <div className="cart--total">
                 <p>Total Amount: {calculateTotal().toFixed(2)} zł</p>
