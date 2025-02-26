@@ -10,18 +10,18 @@ later it was enhanced with advanced features and modern solutions.
 Project is hosted [here](https://dot-plants-shop.vercel.app/). <br>
 Please wait a few seconds to wake up the server. 
 
-## Sample views 
+## Sample views
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/1dc3e181-04f4-40c3-a5e2-1378d6e510da" width="450"></td>
-    <td><img src="https://github.com/user-attachments/assets/047b4481-3abd-4733-a174-edd056d7fea1" width="450"></td>
-    <td><img src="https://github.com/user-attachments/assets/260343bb-92c3-4fb1-975f-490f7ec21c90" width="400"></td>
+    <td><img src="https://github.com/user-attachments/assets/41321866-de6c-4196-a9ae-9999c281b4ae" width="430" style="height:auto;"></td>
+    <td><img src="https://github.com/user-attachments/assets/7a08f9e8-1bbc-43ff-8acb-8cd6333aab44" width="430" style="height:auto;"></td>
+    <td><img src="https://github.com/user-attachments/assets/980657fc-2d5f-4618-ac72-678ad7afa5f6" width="430" style="height:auto;"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/bd62e1d3-1396-4f73-bdd6-8e7145772300" width="450"></td>
-    <td><img src="https://github.com/user-attachments/assets/72c9fe67-3f42-4a4d-806f-d3d53cd15bb4" width="450"></td>
-  <td><img src="https://github.com/user-attachments/assets/7fd9a5da-5e78-4a48-a869-9f8844e999f8" width="450"></td>
+    <td><img src="https://github.com/user-attachments/assets/c5f3425a-04b1-4310-aab0-a1aea90296b7" width="430" style="height:auto;"></td>
+    <td><img src="https://github.com/user-attachments/assets/6c38d692-34f6-4a8e-80c6-63f2ea0bd304" width="430" style="height:auto;"></td>
+    <td><img src="https://github.com/user-attachments/assets/6f8b6273-e94d-4200-ba42-87e6dcb9e3c5" width="430" style="height:auto;"></td>
   </tr>
 </table>
 
