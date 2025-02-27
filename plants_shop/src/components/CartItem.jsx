@@ -4,6 +4,8 @@ import { useCart } from "./CartContext.jsx";
 export default function CartItem(props) {
   const { removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
 
+  console.log(props)
+
   return (
     <div className="product">
       <img className="cart--img" src={`${props.item.image}`}></img>
@@ -20,19 +22,19 @@ export default function CartItem(props) {
         <div className="buttons--wrapper">
           <span
             className="material-symbols-outlined cart--btn"
-            onClick={() => increaseQuantity(props.item.product_id)}
+            onClick={() => increaseQuantity(props.item.productID)}
           >
             add
           </span>
           <span
             className="material-symbols-outlined cart--btn"
-            onClick={() => decreaseQuantity(props.item.product_id)}
+            onClick={() => decreaseQuantity(props.item.productID)}
           >
             remove
           </span>
           <span
             className="material-symbols-outlined cart--btn"
-            onClick={() => removeFromCart(props.item.product_id)}
+            onClick={() => removeFromCart(props.item.productID)}
           >
             close
           </span>

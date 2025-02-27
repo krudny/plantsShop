@@ -24,7 +24,6 @@ export default function Orders({ user }) {
     orderService
       .getCurrentUsersOrders(currentPage, ordersPerPage)
       .then((data) => {
-          console.log(data)
         setOrders(data.content);
         setTotalPages(data.totalPages);
       })

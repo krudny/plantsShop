@@ -42,7 +42,7 @@ export default function Cart() {
               </div>
             </div>
           ) : (
-            <p>Your cart is empty :c</p>
+            <p className="cart--welcome">Your cart is empty :c</p>
           )}
         </div>
         <Footer />

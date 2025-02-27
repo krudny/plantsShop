@@ -10,6 +10,7 @@ export const CartProvider = ({ children }) => {
     return storedCart ? JSON.parse(storedCart) : [];
   });
 
+
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -17,7 +18,7 @@ export const CartProvider = ({ children }) => {
   const increaseQuantity = (productId) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.product_id === productId && item.quantity < 9
+        item.productID === productId && item.quantity < 9
           ? { ...item, quantity: item.quantity + 1 }
           : item,
       ),
@@ -27,7 +28,7 @@ export const CartProvider = ({ children }) => {
   const decreaseQuantity = (productId) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.product_id === productId && item.quantity > 1
+        item.productID === productId && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
           : item,
       ),
@@ -59,7 +60,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = (productId) => {
     setCartItems((prevCartItems) =>
-      prevCartItems.filter((item) => item.product_id !== productId),
+      prevCartItems.filter((item) => item.productID !== productId),
     );
   };
 
